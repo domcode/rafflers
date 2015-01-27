@@ -1,5 +1,5 @@
 # rafflers
-A collection of fun, funky, estoric rafflers
+A collection of fun, funky, esoteric rafflers
 
 ## How does it work?
 It's easy! Just create a directory in the top level for your raffler.

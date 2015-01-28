@@ -1,8 +1,8 @@
 #Rough C Raffler
 
-Dependencies:
+##Dependencies:
 
 	$ sudo apt-get install build-essential
-Usage:
+##sage:
 
 	$ ./raffler list.txt

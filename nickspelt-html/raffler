@@ -21,7 +21,10 @@ node ./node_modules/gulp/bin/gulp.js css --winner "$NAME"
 
 # Detect what open to use
 # Thanks to Willem-Jan Zijderveld
-open=`which open`; if [ -z $open ]; then open=`which xdg-open`; fi
-
-# Open the page
-open index.html
+if hash open 2>/dev/null; then
+    open index.html
+elif hash xdg-open 2>/dev/null; then
+    xdg-open index.html
+else
+    echo "Can't find any program to open index.html with, fix it yourself.."
+fi

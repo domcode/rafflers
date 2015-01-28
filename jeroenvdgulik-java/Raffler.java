@@ -37,7 +37,7 @@ public class Raffler {
         BufferedReader buffer = new BufferedReader(new FileReader(file.getAbsolutePath()));
         String line;
 
-        List<String> attandeeList = new ArrayList<>();
+        List<String> attandeeList = new ArrayList<String>();
         while((line = buffer.readLine()) != null){
             attandeeList.add(line);
         }

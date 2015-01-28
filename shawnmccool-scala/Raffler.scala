@@ -5,9 +5,6 @@ object Raffler {
     import scala.io.Source
 
     def raffleUntil(contestants: List[String], done: () => Boolean) = {
-      println("Press enter to select a winner, q on a blank line to quit.");
-      Console.in.read
-
       def chooseWinner(contestants: List[String]): Unit = {
         if ( ! contestants.isEmpty) {
           println(contestants.head)
@@ -19,6 +16,8 @@ object Raffler {
     }
 
     val qEntered = () => Console.in.read == 113;
+    println("Press enter to select a winner, q on a blank line to quit.");
+    Console.in.read
 
     try {
       val contestants = Random.shuffle(Source.fromFile(args(0)).getLines()).toList

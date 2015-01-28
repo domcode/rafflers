@@ -10,7 +10,7 @@ if len(sys.argv) < 2:
 
 filePath = sys.argv[1];
 
-# Check if the argument is acutally a file
+# Check if the argument is actually a file
 if not os.path.isfile(filePath):
     sys.exit('Please provide a path to an actual file');
 

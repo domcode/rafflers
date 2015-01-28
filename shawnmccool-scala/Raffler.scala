@@ -11,17 +11,15 @@ object Raffler {
           if ( ! done()) chooseWinner(contestants.tail)
         }
       }
-
       chooseWinner(contestants)
     }
 
-    val qEntered = () => Console.in.read == 113;
     println("Press enter to select a winner, q on a blank line to quit.");
     Console.in.read
 
     try {
       val contestants = Random.shuffle(Source.fromFile(args(0)).getLines()).toList
-      raffleUntil(contestants, qEntered)
+      raffleUntil(contestants, () => Console.in.read == 113)
     } catch {
       case _: Throwable => println("Could not load the file.")
     }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @author n0xie
+ * @author jeroen vd gulik
  */
 public class Raffler {
     

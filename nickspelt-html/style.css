@@ -1,0 +1,89 @@
+body {
+  height: 100vh;
+  background: red;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: url('images/dark_leather.png'); }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+      background: url('images/dark_leather_@2X.png'); } }
+
+.winner {
+  box-sizing: border-box;
+  background: url('images/groovepaper.png');
+  padding: 50px;
+  -webkit-animation: displayWinner .8s;
+          animation: displayWinner .8s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  width: 30vw;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .winner {
+      background: url('images/groovepaper_@2X.png'); } }
+  .winner:after {
+    display: block;
+    content: 'The Impressive Clergyman';
+    font-size: 5vw;
+    -webkit-transform: translateZ(0) scale(1, 1);
+            transform: translateZ(0) scale(1, 1); }
+
+@-webkit-keyframes displayWinner {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1), rotate3d(0, 0, 1, -180deg);
+            transform: scale3d(1, 1, 1), rotate3d(0, 0, 1, -180deg); }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -360deg);
+            transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -360deg); }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 180deg);
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 180deg); }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -360deg);
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -360deg); }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
+            transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
+    opacity: 1; } }
+
+@keyframes displayWinner {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1), rotate3d(0, 0, 1, -180deg);
+            transform: scale3d(1, 1, 1), rotate3d(0, 0, 1, -180deg); }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -360deg);
+            transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -360deg); }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 180deg);
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 180deg); }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -360deg);
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -360deg); }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
+            transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
+    opacity: 1; } }

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if node modules are installed, if not install them
+if [ ! -d node_modules ];then
+    npm install
+fi
+
+# Random name script from rjkip
+# https://github.com/domcode/rafflers/tree/master/rjkip-bash
+NAME=$(head -$((${RANDOM} % `wc -l < $1` + 1)) $1 | tail -1)
+
+# Pass the winners name Gulp
+gulp css --winner "$NAME"
+
+# Open the page
+open index.html

@@ -15,4 +15,4 @@ if(! fs.existsSync(file) || ! fs.lstatSync(file).isFile())
 var names = fs.readFileSync(process.argv[2], 'utf8').split('\n')
 
 // Return a random name
-return console.log('The winner is: ' + names[Math.floor(Math.random() * names.length)]);
+return console.log('The winner is: ' + names[Math.floor(Math.random() * (names.length - 1))]);

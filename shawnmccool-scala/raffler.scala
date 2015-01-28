@@ -1,8 +1,6 @@
 
 object Raffler {
   def main(args: Array[String]) {
-    if (args.length == 0) throw new IllegalArgumentException("You must specify a names file.");
-
     import scala.util.Random
     import scala.io.Source
 

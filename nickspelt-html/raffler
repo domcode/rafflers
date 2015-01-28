@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Check if Node is installed
+if [ ! node ]; then
+    echo "It looks like you haven't installed Node.js on your system, please install Node.js and try again";
+    echo "http://nodejs.org/"
+    exit
+fi
+
 # Check if node modules are installed, if not install them
 if [ ! -d node_modules ];then
     npm install
@@ -10,7 +17,11 @@ fi
 NAME=$(head -$((${RANDOM} % `wc -l < $1` + 1)) $1 | tail -1)
 
 # Pass the winners name Gulp
-gulp css --winner "$NAME"
+node ./node_modules/gulp/bin/gulp.js css --winner "$NAME"
+
+# Detect what open to use
+# Thanks to Willem-Jan Zijderveld
+open=`which open`; if [ -z $open ]; then open=`which xdg-open`; fi
 
 # Open the page
 open index.html

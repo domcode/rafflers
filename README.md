@@ -10,4 +10,4 @@ You can write it in any language (provided you can prove to our hosts that it's 
 
 ## Getting Merged Quickly
 - Please throw in an install.sh if you're using something besides PHP or Python.
-- Wacky GIFs isn't required in your PR standards but is encouraged (see YoloSR-2).
+- Wacky GIFs aren't required in your PR but are encouraged (see YoloSR-2).

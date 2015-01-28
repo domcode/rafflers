@@ -3,6 +3,6 @@
 ##Dependencies:
 
 	$ sudo apt-get install build-essential
-##sage:
+##Usage:
 
 	$ ./raffler list.txt

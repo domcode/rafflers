@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# This was tested in production, it works, get over it
+
 # Check for an argument, we need an argument, Ross said so
 if ARGV.empty?
     puts "You need to point to the participants list"

@@ -4,5 +4,5 @@ Dependencies:
 
 	$ sudo apt-get install build-essential
 Usage:
-
+	$ gcc raffler.c -o raffler
 	$ ./raffler list.txt

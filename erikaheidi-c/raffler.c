@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char readLine[50];
 	time_t t;
 	
-	if (!argc) {
+	if (argc < 2) {
 		printf("You forgot to provide a filename.\n");
 		return 0;
 	}

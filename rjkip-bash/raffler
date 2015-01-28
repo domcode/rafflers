@@ -1,0 +1,2 @@
+#!/bin/bash
+head -$((${RANDOM} % `wc -l < $1` + 1)) $1 | tail -1

@@ -1,25 +1,26 @@
         >>source format is free
-IDENTIFICATION DIVISION.
-    PROGRAM-ID. DOMCODE-RAFFLER.
-    AUTHOR. Lucas van Lierop.
+identification division.
+    program-id. domcode-raffler.
+    author. Lucas van Lierop.
 
 data division.
     working-storage section.
-        01 file-name PIC x(50).
-PROCEDURE DIVISION.
-    DISPLAY 'Ready to raffle!'.
-    PERFORM 100-INITIALIZE.
-STOP RUN.
+        01 file-name pic x(50).
+procedure division.
+    display 'ready to raffle!'.
+    perform 100-initialize.
+stop run.
 
-100-INITIALIZE.
-    ACCEPT file-name FROM ARGUMENT-VALUE
-        ON EXCEPTION
-            DISPLAY
-                "Attempt to read beyond end of command line"
-                UPON SYSERR
-            END-DISPLAY
-        NOT ON EXCEPTION
-            DISPLAY
+100-initialize.
+    accept file-name from argument-value
+        on exception
+            display
+                "attempt to read beyond end of command line"
+                upon syserr
+            end-display
+        not on exception
+            display
                 "reading " file-name
-            END-display
-    END-ACCEPT.
+            end-display
+    end-accept.
+

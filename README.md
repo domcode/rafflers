@@ -1,6 +1,9 @@
 # rafflers
 A collection of fun, funky, esoteric rafflers
 
+## Can I submit one?
+Yes! Everyone! Even if you're not a member of DomCode. Even if it's already implemented in a language. Be creative. Have fun!
+
 ## How does it work?
 It's easy! Just create a directory in the top level for your raffler.
 

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"os"
+	"fmt"
 	"io/ioutil"
 	"math/rand"
+	"os"
 	"strings"
-	"fmt"
 	"time"
 )
 
@@ -14,8 +14,8 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	if len(args) < 1 {
-	  fmt.Println("No input file given")
-	  os.Exit(1)
+		fmt.Println("No input file given")
+		os.Exit(1)
 	}
 
 	b, err := ioutil.ReadFile(args[0])

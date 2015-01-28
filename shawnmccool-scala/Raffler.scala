@@ -19,7 +19,7 @@ object Raffler {
 
     try {
       val contestants = Random.shuffle(Source.fromFile(args(0)).getLines()).toList
-      raffleUntil(contestants, () => Console.in.read == 'q'.asInstanceOf[Int])
+      raffleUntil(contestants, () => Console.in.read == 'q')
     } catch {
       case _: Throwable => println("Could not load the file.")
     }

@@ -37,7 +37,7 @@ body {
       background: url('images/groovepaper_@2X.png'); } }
   .winner:after {
     display: block;
-    content: 'The Impressive Clergyman';
+    content: 'The Albino';
     font-size: 5vw;
     -webkit-transform: translateZ(0) scale(1, 1);
             transform: translateZ(0) scale(1, 1); }
@@ -61,8 +61,8 @@ body {
             transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -360deg); }
 
   100% {
-    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
-            transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
+    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 23deg);
+            transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 23deg);
     opacity: 1; } }
 
 @keyframes displayWinner {
@@ -84,6 +84,6 @@ body {
             transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -360deg); }
 
   100% {
-    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
-            transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 6deg);
+    -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 23deg);
+            transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 23deg);
     opacity: 1; } }

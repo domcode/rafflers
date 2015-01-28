@@ -1,9 +1,14 @@
 {
-  "name": "Domcode Raffler",
-  "title": "From Bash to Gulp to SCSS to CSS to HTML",
+  "name": "Domcode-Raffler",
+  "title": "It's 5 languages!",
+  "description": "From Bash to Gulp to SCSS to CSS to HTML",
   "author": "Nick Spelt",
   "version": "1.0.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:domcode/rafflers.git"
+  },
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^1.0.1",

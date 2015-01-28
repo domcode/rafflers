@@ -6,4 +6,4 @@ main = do
     contents <- hGetContents =<< flip openFile ReadMode . head =<< getArgs
     
     gen <- getStdGen
-    print $ lines contents !! (fst $ randomR (0,length $ lines contents) gen)
+    let lc = lines contents in print $ lc !! (fst $ randomR (0,length lc) gen)

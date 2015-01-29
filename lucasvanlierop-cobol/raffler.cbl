@@ -32,10 +32,15 @@ data division.
 
        01  display-count pic z,zzz,zzz.
 
+        01  ws-max                      pic 9(3).
+        01  ws-result                   pic 9(3).
+
+
 procedure division.
     display 'ready to raffle!'.
     perform 100-initialize.
-       perform 110-read-input-file.
+    perform 110-read-input-file.
+    perform 120-pick-winner.
 
 stop run.
 
@@ -59,15 +64,26 @@ stop run.
 
            perform until names-file-status = '10'
                add 1 to names-count
+               add 1 to ws-max
 
                unstring names-record delimited by ',' into
                    name
 
+               display
+                   "Name: " name
+               end-display
                read names-file
            end-perform
 
            close names-file
 
            move names-count to display-count
-           display display-count space 'names'
-           .
+           display display-count space 'names'.
+
+120-pick-winner.
+   call "calcrand"
+      using ws-max
+            ws-result
+   end-call
+
+   display "And the winner is: " ws-result.

@@ -1,1 +1,3 @@
-cobc -free -x -o raffler raffler.cbl
+#!/bin/sh
+cobc -free -x -o raffler raffler.cbl calcrand.cbl
+

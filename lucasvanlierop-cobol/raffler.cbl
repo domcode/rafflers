@@ -57,7 +57,7 @@ stop run.
 
            read names-file
 
-           perform
+           perform until names-file-status = '10'
                add 1 to names-count
 
                unstring names-record delimited by ',' into

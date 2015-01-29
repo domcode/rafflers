@@ -2,6 +2,13 @@
 identification division.
     program-id. domcode-raffler.
     author. Lucas van Lierop.
+      *> =============================================
+      *> 1) read a file and pick a name for the raffle
+      *> =============================================
+      *> cobc raffler.cbl -free -x -0
+      *> ./raffler {filename}
+      *> =============================================
+
 
 data division.
     working-storage section.

@@ -5,7 +5,6 @@ identification division.
       *> =============================================
       *> 1) read a file and pick a name for the raffle
       *> =============================================
-      *> cobc raffler.cbl -free -x -0
       *> ./raffler {filename}
       *> =============================================
 
@@ -27,10 +26,10 @@ data division.
         01 names-file-status pic x(2).
         01 names-count pic 9(9) value zero.
 
-       01  name-columns.
-           03  name pic x(32).
+        01  name-columns.
+        03  name pic x(32).
 
-       01  display-count pic z,zzz,zzz.
+        01  display-count pic z,zzz,zzz.
 
         01  ws-max                      pic 9(3).
         01  ws-result                   pic 9(3).
@@ -60,25 +59,25 @@ stop run.
 110-read-input-file.
     open input names-file
 
-           read names-file
+    read names-file
 
-           perform until names-file-status = '10'
-               add 1 to names-count
-               add 1 to ws-max
+    perform until names-file-status = '10'
+       add 1 to names-count
+       add 1 to ws-max
 
-               unstring names-record delimited by ',' into
-                   name
+       unstring names-record delimited by ',' into
+           name
 
-               display
-                   "Name: " name
-               end-display
-               read names-file
-           end-perform
+       display
+           "Name: " name
+       end-display
+       read names-file
+    end-perform
 
-           close names-file
+    close names-file
 
-           move names-count to display-count
-           display display-count space 'names'.
+    move names-count to display-count
+    display display-count space 'names'.
 
 120-pick-winner.
    call "calcrand"

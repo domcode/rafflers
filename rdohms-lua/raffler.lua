@@ -15,7 +15,7 @@ end
 
 math.randomseed (os.time())
 
-local participants = readFromFile("participants.txt")
+local participants = readFromFile(arg[1])
 local winningEntry = math.random(1, #participants)
 
 print("The Winner is " .. participants[winningEntry])

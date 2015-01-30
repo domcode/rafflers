@@ -20,9 +20,9 @@ let read_file f =
 	let lines = ref [] in
 		let chan = open_in f in
 		try
-		while true; do
-			lines := input_line chan :: !lines
-		done; []
+			while true; do
+				lines := input_line chan :: !lines
+			done; []
 		with End_of_file ->
 			close_in chan;
 			List.rev !lines;;

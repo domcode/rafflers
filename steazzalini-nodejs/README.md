@@ -1,8 +1,8 @@
-#nodejs Raffler
+#Node.js Raffler
 
 ##Dependencies:
 
-	[nodejs](http://nodejs.org/)
+- [Node.js](http://nodejs.org/)
 
 ##Usage:
 

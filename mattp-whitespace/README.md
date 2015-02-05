@@ -25,10 +25,18 @@ cat ../example_names | ./ws-interpreter.php domraffler.ws
 
 ## Source
 
-The whitespace programme is actually output from PHPWhitespace, 
+The whitespace program is actually output from PHPWhitespace, 
 by (this example file)[https://github.com/mattparker/phpwhitespace/blob/master/examples/domraffler.php].  In other words, it's written in php, 
 converted into Whitespace, which is then run using a Whitespace
 interpreter written in php.
+
+The php script that generates the whitespace program is domraffler.php.
+It's hopefully reasonably well commented and labelled to follow a bit,
+although it's entirely uninformed by computer science and so is 
+highly likely to be poorly written / structured etc.
+
+To generate the whitespace program, simply run `php -f domraffler.php`.
+It will write the file `domraffler.ws`.
 
 
 ## Credits

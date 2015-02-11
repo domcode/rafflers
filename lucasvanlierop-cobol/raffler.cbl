@@ -24,22 +24,22 @@ data division.
     working-storage section.
         01 names-file-name pic x(50).
         01 names-file-status pic x(2).
-        01 names-count pic 9(9) value zero.
+        01 current-name-nr pic 9(9) value zero.
 
         01  name-columns.
         03  name pic x(32).
 
-        01  display-count pic z,zzz,zzz.
-
-        01  ws-max                      pic 9(3).
-        01  ws-result                   pic 9(3).
-
+        01  nr-of-names                      pic 9(3).
+        01  nr-of-names-formatted pic zzz.
+        01  random-name-nr                   pic 9(3) value zero.
 
 procedure division.
+
     display 'ready to raffle!'.
     perform 100-initialize.
     perform 110-read-input-file.
     perform 120-pick-winner.
+    perform 130-lookup-winner-name.
 
 stop run.
 
@@ -62,27 +62,44 @@ stop run.
     read names-file
 
     perform until names-file-status = '10'
-       add 1 to names-count
-       add 1 to ws-max
+       add 1 to nr-of-names
+
+       read names-file
+    end-perform
+
+    close names-file.
+
+
+120-pick-winner.
+    move nr-of-names to nr-of-names-formatted
+
+    display "Picking a winner from " nr-of-names-formatted " names...".
+
+   call "calcrand"
+      using nr-of-names
+            random-name-nr
+   end-call
+.
+
+130-lookup-winner-name.
+    open input names-file
+
+    read names-file
+
+    perform until current-name-nr = nr-of-names
+       add 1 to current-name-nr
 
        unstring names-record delimited by ',' into
            name
 
-       display
-           "Name: " name
-       end-display
+        if current-name-nr = random-name-nr then
+           display
+              "And the winner is: " name "(" random-name-nr ")"
+          end-display
+        end-if
+
        read names-file
     end-perform
 
     close names-file
-
-    move names-count to display-count
-    display display-count space 'names'.
-
-120-pick-winner.
-   call "calcrand"
-      using ws-max
-            ws-result
-   end-call
-
-   display "And the winner is: " ws-result.
+.

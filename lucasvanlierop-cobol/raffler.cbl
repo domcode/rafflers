@@ -5,7 +5,7 @@ identification division.
       *> =============================================
       *> 1) read a file and pick a name for the raffle
       *> =============================================
-      *> ./raffler {filename}
+      *> usage: ./raffler {filename}
       *> =============================================
 
 environment division.

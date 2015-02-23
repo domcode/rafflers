@@ -19,19 +19,19 @@ environment division.
 data division.
     file section.
         fd names-file.
-        01 names-record pic x(80).
+        01 names-record             pic x(80).
 
     working-storage section.
-        01 names-file-name pic x(50).
-        01 names-file-status pic x(2).
-        01 current-name-nr pic 9(9) value zero.
+        01 names-file-name          pic x(50).
+        01 names-file-status        pic x(2).
+        01 current-name-nr          pic 9(9) value zero.
 
-        01  name-columns.
-        03  name pic x(32).
+        01 name-columns.
+        03 name                     pic x(32).
 
-        01  nr-of-names                      pic 9(3).
-        01  nr-of-names-formatted pic zzz.
-        01  random-name-nr                   pic 9(3) value zero.
+        01 nr-of-names              pic 9(3).
+        01 nr-of-names-formatted    pic zzz.
+        01 random-name-nr           pic 9(3) value zero.
 
 procedure division.
 

@@ -40,5 +40,8 @@ To test it out, i would suggest using BOCHS, or anything that can boot from a fl
         dd if=bootsector.dat of=floppy.img bs=512 count=1 conv=notrunc 
 
 
+- if you run with bochs, you must do so like this:
+        
+        bochs -f bochsrc -q
 
-
+- if you want to run on virtualbox, make a new machine, attach a floppy controller (settings | storage | + controller), and attach your floppy.img to it. There might be a vboxmanage script for this in the future.

@@ -7,7 +7,7 @@
 sudo apt-get -yy install dosfstools mtools nasm
 
 # Creates an empty 1.44MB floppy image
-dd if=/dev/zero of=mrfloppy.img bs=512 count=2880
+dd if=/dev/zero of=mr_floppy.img bs=512 count=2880
 
 # Format it
 sudo mkfs.msdos mr_floppy.img

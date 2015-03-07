@@ -1,4 +1,4 @@
-#CMake affler
+#CMake raffler
 
 ##Dependencies:
 
@@ -6,4 +6,6 @@
 
 ##Usage:
 
-	$  cmake -DNAMES_PATH=/path/to/file .
+```shell
+cmake -DNAMES_PATH=/path/to/file .
+```

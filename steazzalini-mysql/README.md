@@ -2,7 +2,7 @@
 
 ## Dependencies
 
- - MySQL
+ - MySQL 5.*
 
 ## Execute
 ```

@@ -7,3 +7,6 @@ CREATE TEMPORARY TABLE names(name VARCHAR(30) NOT NULL);
 LOAD DATA INFILE 'example_names' INTO TABLE names;
 
 SELECT name AS 'The winner is:' FROM names ORDER BY RAND() LIMIT 1;
+
+DROP DATABASE domcode_rafflers;
+

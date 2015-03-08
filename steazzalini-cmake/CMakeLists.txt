@@ -24,11 +24,8 @@ list(REMOVE_ITEM names_list "")
 # get the number of names to choose from
 list(LENGTH names_list number_of_names)
 
-# get `number_of_names' number of digits 
-string(LENGTH "${number_of_names}" number_of_digits)
-
-# ... to generate a random number that has at `number_of_digits' digits
-string(RANDOM LENGTH ${number_of_digits} ALPHABET 0123456789 random_number)
+# generate a random number from 0 to 99999
+string(RANDOM LENGTH 5 ALPHABET 0123456789 random_number)
 
 # calculate the modulo as usual
 math(EXPR number "${random_number} % ${number_of_names}")

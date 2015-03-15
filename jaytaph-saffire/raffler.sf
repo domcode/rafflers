@@ -3,7 +3,7 @@ import math;
 import file;
 
 # Create a new file object based on users.txt, and create a list of all lines (1 user per line)
-users = file("users.txt", "r").lines();
+users = file.open("users.txt", "r").lines();
 
 # Fetch random number between 0 and length of users list
 idx = math.random(0, users.length());

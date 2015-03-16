@@ -2,11 +2,9 @@ import io;
 import math;
 import file;
 
-# Create a new file object based on users.txt, and create a list of all lines (1 user per line)
-users = file.open("users.txt", "r").lines();
+// Create a new file object based on users.txt, and create a list of all lines (1 user per line)
+f = file.open("users.txt", "r");
+users = f.lines();
+winner = users.random();
 
-# Fetch random number between 0 and length of users list
-idx = math.random(0, users.length());
-
-# Print that user
-io.print("Random user: ", users[idx], "\n");
+io.print("Random user: ", winner, "\n");

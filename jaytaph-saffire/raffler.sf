@@ -1,0 +1,10 @@
+import io;
+import math;
+import file;
+
+// Create a new file object based on users.txt, and create a list of all lines (1 user per line)
+f = file.open("users.txt", "r");
+users = f.lines();
+winner = users.random();
+
+io.print("Random user: ", winner, "\n");

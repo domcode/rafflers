@@ -1,0 +1,12 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/scato/glitch.git"
+        }
+    ],
+    "require": {
+        "scato/glitch": "dev-master"
+    }
+}
+

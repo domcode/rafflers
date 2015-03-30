@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Check if Node is installed
+if [ ! node ]; then
+    echo "It looks like you haven't installed Node.js on your system, please install Node.js and try again";
+    echo "http://nodejs.org/"
+    exit
+fi
+
+# Check if node modules are installed, if not install them
+if [ ! -d node_modules ];then
+    npm install
+fi
+
+# Random name script from rjkip
+# https://github.com/domcode/rafflers/tree/master/rjkip-bash
+NAME=$(head -$((${RANDOM} % `wc -l < $1` + 1)) $1 | tail -1)
+
+# Pass the winners name Gulp
+node ./node_modules/gulp/bin/gulp.js css --winner "$NAME"
+
+# Detect what open to use
+# Thanks to Willem-Jan Zijderveld
+if hash open 2>/dev/null; then
+    open index.html
+elif hash xdg-open 2>/dev/null; then
+    xdg-open index.html
+else
+    echo "Can't find any program to open index.html with, fix it yourself.."
+fi

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ansible-playbook -i local raffler.yml
+sudo apt-get install ansible

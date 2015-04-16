@@ -1,3 +1,8 @@
 ---
-- local_action: osx_say msg="And the winner is {{ item}}" voice=Vicki
-  with_random_choice: "names"
+- name: register all the names
+  command: cat {{ names_file }}
+  register: names
+
+- name: And the winner is
+  debug: msg="{{ item }}"
+  with_random_choice: names.stdout_lines

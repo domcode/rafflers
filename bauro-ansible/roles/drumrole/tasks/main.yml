@@ -1,0 +1,3 @@
+---
+- local_action: osx_say msg="And the winner is {{ item}}" voice=Vicki
+  with_random_choice: "names"

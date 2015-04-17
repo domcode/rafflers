@@ -1,0 +1,57 @@
+---
+- copy: src={{ names_file }} dest=/var/names mode=0644
+  sudo: yes
+
+- name: register all the names
+  command: cat /var/names
+  sudo: yes
+  register: names
+
+- name: Create the site folders
+  sudo: yes
+  file:
+    path: /var/www/raffler{{ item.0 + 1 }}
+    state: directory
+    recurse: yes
+  with_indexed_items: names.stdout_lines
+
+- name: Create index files with the names
+  sudo: yes
+  copy:
+    content: "{{ item.1 }}"
+    dest: /var/www/raffler{{ item.0 + 1 }}/index.html
+    mode: 0644
+  with_indexed_items: names.stdout_lines
+
+- name: Remove default virtual host
+  sudo: yes
+  file: path=/etc/apache2/sites-enabled/000-default.conf state=absent
+  notify: apache-reload
+
+- name: Add virtual hosts
+  sudo: yes
+  template: src=vhost.conf.j2 dest=/etc/apache2/sites-available/{{ item.0 + 1}}.conf mode=0644
+  with_indexed_items: names.stdout_lines
+  notify: apache-reload
+
+- name: Enabel virtual hosts
+  sudo: yes
+  command: a2ensite {{ item.0 + 1 }}.conf creates=/etc/apache2/sites-enabled/{{ item.0 + 1 }}.conf
+  with_indexed_items: names.stdout_lines
+  notify: apache-reload
+
+- name: Tell apache to listen to multiple ports assigned to each name
+  lineinfile: dest=/etc/apache2/ports.conf line="Listen {{ item.0 + 81 }}"
+  sudo: yes
+  with_indexed_items: names.stdout_lines
+  notify:
+    - apache-restart
+
+- name: Write the haproxy config file
+  sudo: yes
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+  notify:
+    - haproxy-restart

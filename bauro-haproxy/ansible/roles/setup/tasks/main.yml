@@ -1,0 +1,38 @@
+---
+- name: Set version of haproxy to 1.5
+  sudo: yes
+  apt_repository: repo='ppa:vbernat/haproxy-1.5' state=present
+
+- name: Update repository cache
+  sudo: yes
+  apt: update_cache=yes
+
+- name: Install packages
+  sudo: yes
+  apt: name={{ item }} state=latest
+  with_items: "packages"
+
+- name: Set hostname
+  sudo: yes
+  hostname: name="Raffler"
+
+- name: Tell apache to listen to port 8080
+  lineinfile: dest=/etc/apache2/ports.conf line="Listen 80" state=absent
+  sudo: yes
+  notify:
+    - apache-restart
+
+- name: Tell apache to listen to port 8080
+  lineinfile: dest=/etc/apache2/ports.conf line="Listen 8080"
+  sudo: yes
+  notify:
+    - apache-restart
+
+- name: Enable HaProxy
+  sudo: yes
+  copy:
+    content: "ENABLED=1"
+    dest: /etc/default/haproxy
+    mode: 0644
+  notify:
+      - haproxy-restart

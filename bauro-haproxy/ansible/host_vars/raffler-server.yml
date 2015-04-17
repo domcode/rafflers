@@ -1,0 +1,5 @@
+packages:
+  - apache2
+  - haproxy
+
+names_file: ../../example_names

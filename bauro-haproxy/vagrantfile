@@ -1,0 +1,28 @@
+##
+# Vagrant box for Symfony projects
+# Made by BauRo (roy@bauro.io)
+##
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.ssh.insert_key = true
+
+  config.vm.provider :virtualbox do |vb|
+    vb.name = "Rafler Server"
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+
+  config.vm.define "raffler-server" do |network|
+    network.vm.network "private_network", ip: "192.168.75.115",
+        auto_config: true
+    network.vm.network "public_network", bridge: 'en0: Wi-Fi (AirPort)'
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "ansible/raffler.yml"
+    ansible.limit = "raffler-server"
+  end
+
+end

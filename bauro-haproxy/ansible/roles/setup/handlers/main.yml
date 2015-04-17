@@ -1,0 +1,8 @@
+---
+- name: apache-restart
+  sudo: yes
+  service: name=apache2 state=restarted
+
+- name: haproxy-restart
+  sudo: yes
+  service: name=haproxy state=restarted

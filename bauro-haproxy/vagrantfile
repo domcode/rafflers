@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = true
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "Rafler Server"
+    vb.name = "Raffler Server"
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 

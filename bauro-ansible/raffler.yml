@@ -1,0 +1,9 @@
+---
+##
+# Raffler
+##
+- hosts:
+  - ansible-host
+
+  roles:
+  - drumrole

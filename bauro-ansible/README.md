@@ -7,6 +7,10 @@ run the `install.sh` script
 
 Raffle
 ------
+The default file for the raffle is `../example_names` and you can run the raffle like:
 
-Inside `host_vars/localhost.yml` set the variable `names_files` with the path to the file that contains the possible winners
-Run the `run.sh` script
+    run.sh
+    
+If you want you can give another file path as a argument like:
+
+    run.sh ../example_names

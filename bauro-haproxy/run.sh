@@ -12,8 +12,10 @@ vagrant ssh <<'ENDSSH'
 
 cd /vagrant/Test/
 ( ( node_modules/.bin/phantomjs --webdriver=4444 & ) & )
-sleep 5
+sleep 3
+codecept build
 codecept run  --steps
+logout
 
 ENDSSH
 

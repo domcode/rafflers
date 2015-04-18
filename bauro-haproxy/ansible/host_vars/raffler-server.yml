@@ -1,5 +1,20 @@
+repositories:
+  - name: Haproxy
+    repository: ppa:vbernat/haproxy-1.5
+
 packages:
   - apache2
+  - php5
   - haproxy
+  - curl
+  - git
+  - nodejs
+  - nodejs-legacy
+  - npm
+  - libfontconfig1
+  - build-essential
+
+extentions:
+  - php5-curl
 
 names_file: ../../example_names

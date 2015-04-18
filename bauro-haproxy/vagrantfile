@@ -5,6 +5,12 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
+if ENV["NAMES_FILE"]
+    $names_file = ENV["NAMES_FILE"]
+else
+    $names_file = "../../example_names"
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.ssh.insert_key = true
@@ -23,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/raffler.yml"
     ansible.limit = "raffler-server"
+    ansible.extra_vars = { names_file: $names_file }
   end
 
 end

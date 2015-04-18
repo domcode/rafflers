@@ -1,0 +1,8 @@
+{
+   "name": "Raffler",
+   "version": "1.0.0",
+   "private": true,
+   "devDependencies": {
+     "phantomjs": "~1.9.0"
+   }
+ }

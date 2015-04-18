@@ -1,7 +1,0 @@
----
-- name: apache-reload
-  service: name=apache2 state=reloaded
-
-- name: haproxy-restart
-  sudo: yes
-  service: name=haproxy state=restarted

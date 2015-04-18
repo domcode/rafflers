@@ -1,0 +1,52 @@
+---
+##
+# Apache configuration
+##
+
+- name: Write the apache ports config file
+  sudo: yes
+  template:
+    src: ports.conf.j2
+    dest: /etc/apache2/ports.conf
+    mode: 0644
+  notify:
+    - apache-restart
+
+- name: Remove default virtual host
+  sudo: yes
+  file: path=/etc/apache2/sites-enabled/000-default.conf state=absent
+  notify: apache-reload
+
+- name: Add virtual hosts
+  sudo: yes
+  template: src=vhost.conf.j2 dest=/etc/apache2/sites-available/{{ item.0 + 1}}-raffler.conf mode=0644
+  with_indexed_items: names.stdout_lines
+  notify: apache-reload
+
+- name: Enabel virtual hosts
+  sudo: yes
+  command: a2ensite {{ item.0 + 1 }}-raffler.conf creates=/etc/apache2/sites-enabled/{{ item.0 + 1 }}-raffler.conf
+  with_indexed_items: names.stdout_lines
+  notify: apache-reload
+
+##
+# HaProxy configuration
+##
+
+- name: Enable HaProxy
+  sudo: yes
+  copy:
+    content: "ENABLED=1"
+    dest: /etc/default/haproxy
+    mode: 0644
+  notify:
+    - haproxy-restart
+
+- name: Write the haproxy config file
+  sudo: yes
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+  notify:
+    - haproxy-restart

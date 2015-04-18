@@ -1,0 +1,39 @@
+---
+- name: Add repositories
+  sudo: yes
+  apt_repository:
+    repo: "{{ item.repository}}"
+    state: present
+    validate_certs: yes
+  with_items:
+  - "{{ repositories }}"
+
+- name: Update repository cache
+  sudo: yes
+  apt: update_cache=yes
+
+- name: Install packages
+  sudo: yes
+  apt: name={{ item }} state=latest
+  with_items: "packages"
+
+- name: Install extentions
+  sudo: yes
+  apt: name={{ item }} state=latest
+  with_items: "extentions"
+
+- name: download codecept.phar
+  sudo: yes
+  get_url:
+    url: http://codeception.com/codecept.phar
+    dest: /usr/local/bin
+
+- name: Rename codeception.phar to codeception
+  sudo: yes
+  shell: mv /usr/local/bin/codecept.phar /usr/local/bin/codecept
+
+- name: Make codeception executable
+  sudo: yes
+  shell: chmod a+x /usr/local/bin/codecept
+
+- npm: path=/vagrant/Test

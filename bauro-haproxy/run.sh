@@ -14,9 +14,11 @@ cd /vagrant/Test/
 ( ( node_modules/.bin/phantomjs --webdriver=4444 & ) & )
 sleep 3
 codecept build
-codecept run  --steps
-logout
+codecept run
+sudo poweroff
 
 ENDSSH
 
 vagrant destroy --force
+cat winner.txt
+rm winner.txt

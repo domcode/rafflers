@@ -9,10 +9,11 @@ class RafflerRunnerCest {
     {
         $I->amOnPage('/');
         $visits = rand ( 50 , 1000 );
+        $I->seeElement('h1');
         $i = 0;
-        while ($visits > $i) {
+        while ($visits > $i++) {
             $I->reloadPage();
-            $i++;
+            $I->seeElement('h1');
         }
         $winner = $I->grabTextFrom('h1');
         $file = fopen("/vagrant/winner.txt","w");

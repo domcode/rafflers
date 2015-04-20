@@ -1,0 +1,29 @@
+---
+- name: Set hostname
+  sudo: yes
+  hostname: name="Raffler"
+
+- name: Check if the input file exist
+  local_action: stat path={{ names_file }}
+  register: input_file
+
+- name: Trow debug message to notify that the input file does not exist
+  debug: msg="The input file {{ names_file }} does not exist"
+  when: input_file.stat.exists == False
+
+- name: Register all the names
+  local_action: command cat {{ names_file }}
+  register: names
+  when: input_file.stat.exists != False
+
+- name: Include install file
+  include: install.yml
+  when: input_file.stat.exists != False
+
+- name: Include configuration file
+  include: configuration.yml
+  when: input_file.stat.exists != False
+
+- name: Include raffle sites file
+  include: raffle-sites.yml
+  when: input_file.stat.exists != False

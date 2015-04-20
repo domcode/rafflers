@@ -17,7 +17,7 @@ backend nodes
     mode http
     balance leastconn
 {% for raffler in names.stdout_lines %}
-    server raffler{{ loop.index }} 127.0.0.1:{{ loop.index + 80 }} check
+    server raffler{{ loop.index }} 127.0.0.1:{{ loop.index + 7000 }} check
 {% endfor %}
 
 listen stats *:1936

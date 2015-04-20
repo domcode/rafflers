@@ -8,7 +8,7 @@ class RafflerRunnerCest {
     public function testFindRafflerWinner(AcceptanceTester $I)
     {
         $I->amOnPage('/');
-        $visits = rand ( 50 , 1000 );
+        $visits = mt_rand ( 50 , 1000 );
         $I->seeElement('h1');
         $i = 0;
         while ($visits > $i++) {

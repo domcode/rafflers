@@ -1,0 +1,6 @@
+---
+# file: host_vars/localhost
+
+ansible_connection: local
+
+names_file: ../example_names

@@ -1,0 +1,9 @@
+---
+##
+# Raffler
+##
+- hosts:
+  - raffler-server
+
+  roles:
+  - setup

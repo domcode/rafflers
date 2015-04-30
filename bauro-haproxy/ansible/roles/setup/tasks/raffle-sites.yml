@@ -1,0 +1,20 @@
+---
+##
+# Create the Raffle sites for each name
+##
+
+- name: Create the site folders
+  sudo: yes
+  file:
+    path: /var/www/raffler{{ item.0 + 1 }}
+    state: directory
+    recurse: yes
+  with_indexed_items: names.stdout_lines
+
+- name: Create index files with the names
+  sudo: yes
+  copy:
+    content: "<h1>{{ item.1 }}</h1>"
+    dest: /var/www/raffler{{ item.0 + 1 }}/index.html
+    mode: 0644
+  with_indexed_items: names.stdout_lines

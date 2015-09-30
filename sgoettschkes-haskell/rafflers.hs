@@ -1,6 +1,6 @@
-import System.Environment
-import System.IO
-import System.Random 
+import System.Environment (getArgs)
+import System.IO (hGetContents, openFile, IOMode(ReadMode))
+import System.Random (getStdGen, randomR)
 
 main = do 
     contents <- hGetContents =<< flip openFile ReadMode . head =<< getArgs

@@ -16,5 +16,7 @@ RANDOM_RAFFLER=${RAFFLER_NAMES[$RANDOM % ${#RAFFLER_NAMES[@]} ]}
 
 # run raffler in container with names dir mounted
 CONTAINER_NAME="${RANDOM_RAFFLER}_raffler"
-echo "Raffling using '$RANDOM_RAFFLER':"
+echo -e "Raffling using \033[91m$RANDOM_RAFFLER\e[0m"
+echo -e "\033[92m"
 docker run -v $NAMES_DIR:/var/names $CONTAINER_NAME
+echo -e "\e[0m"

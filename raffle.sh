@@ -10,7 +10,11 @@ WORKING_DIR=`dirname ${SCRIPT_PATH}`
 NAMES_FILE=`realpath $WORKING_DIR/$1`
 cp $NAMES_FILE $NAMES_DIR/current
 
+# Raffle a raffler ;-)
+declare -a RAFFLER_NAMES=('sgoettschkes_haskell' 'lucasvanlierop_cobol')
+RANDOM_RAFFLER=${RAFFLER_NAMES[$RANDOM % ${#RAFFLER_NAMES[@]} ]}
+
 # run raffler in container with names dir mounted
-CONTAINER_NAME="sgoettschkes_haskell_raffler"
-echo "Raffling using '$CONTAINER_NAME':"
+CONTAINER_NAME="${RANDOM_RAFFLER}_raffler"
+echo "Raffling using '$RANDOM_RAFFLER':"
 docker run -v $NAMES_DIR:/var/names $CONTAINER_NAME

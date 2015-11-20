@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # Note that the rust raffle does not compile yet
 #docker build -t frankdejonge_rust_raffler frankdejonge-rust

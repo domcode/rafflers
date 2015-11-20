@@ -11,7 +11,7 @@ NAMES_FILE=`realpath $WORKING_DIR/$1`
 cp $NAMES_FILE $NAMES_DIR/current
 
 # Raffle a raffler ;-)
-declare -a RAFFLER_NAMES=('basbl_zsh' 'lucasvanlierop_cobol' 'rjkip_elixir' 'sgoettschkes_haskell')
+declare -a RAFFLER_NAMES=('basbl_zsh' 'lucasvanlierop_cobol' 'rjkip_elixir' 'sgoettschkes_haskell' 'shawnmccool_scala')
 RANDOM_RAFFLER=${RAFFLER_NAMES[$RANDOM % ${#RAFFLER_NAMES[@]} ]}
 
 # run raffler in container with names dir mounted

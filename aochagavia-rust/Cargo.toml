@@ -1,0 +1,7 @@
+[package]
+name = "raffler"
+version = "0.1.0"
+authors = ["Adolfo Ochagavía <aochagavia92@gmail.com>"]
+
+[dependencies]
+rand = "0.3.13"

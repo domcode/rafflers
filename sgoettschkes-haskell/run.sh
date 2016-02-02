@@ -1,3 +1,2 @@
 #!/bin/sh
-
-runhaskell rafflers.hs ../example_names
+runhaskell rafflers.hs /var/names/current

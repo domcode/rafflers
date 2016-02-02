@@ -34,8 +34,6 @@ data division.
         01 random-name-nr           pic 9(3) value zero.
 
 procedure division.
-
-    display 'ready to raffle!'.
     perform 100-initialize.
     perform 110-read-input-file.
     perform 120-pick-winner.
@@ -49,10 +47,6 @@ stop run.
             display
                 "attempt to read beyond end of command line"
                 upon syserr
-            end-display
-        not on exception
-            display
-                "reading " names-file-name
             end-display
     end-accept.
 
@@ -73,12 +67,10 @@ stop run.
 120-pick-winner.
     move nr-of-names to nr-of-names-formatted
 
-    display "Picking a winner from " nr-of-names-formatted " names...".
-
-   call "calcrand"
+    call "calcrand"
       using nr-of-names
             random-name-nr
-   end-call
+    end-call
 .
 
 130-lookup-winner-name.
@@ -94,7 +86,7 @@ stop run.
 
         if current-name-nr = random-name-nr then
            display
-              "And the winner is: " name "(" random-name-nr ")"
+              name "(" random-name-nr "/" nr-of-names ")"
           end-display
         end-if
 

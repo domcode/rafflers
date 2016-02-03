@@ -13,10 +13,6 @@ nasm -o bootsector.img raffler.S
 # copy bootsector to the start of the floppy image
 dd if=bootsector.img of=mr_floppy.img bs=512 count=1 conv=notrunc
 
-#bochs -f bochsrc -q
-
-#/sbin/vboxconfig
-
 VBM=`which VBoxManage`
 
 TS=`date +"%s"`
@@ -32,7 +28,7 @@ $VBM storagectl "$BOXNAME" --name "Mr Floppy Controller" --add floppy
 $VBM storageattach "$BOXNAME" --storagectl "Mr Floppy Controller" --port 0 --device 0 --type fdd --medium mr_floppy.img
 
 # Run the machine (you can reset the machine manually to raffle a new user!)
-$VBM startvm "$BOXNAME" --type=gui
+VBoxHeadless -s "$BOXNAME"
 
 
 

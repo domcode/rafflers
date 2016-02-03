@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$1" == "" ]; then
+	echo "Usage: ./raffle <file>"
+	exit 1
+fi
+
 # Create a dir to share names file with container
 NAMES_DIR="/tmp/raffler_names"
 mkdir -p $NAMES_DIR

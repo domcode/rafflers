@@ -92,9 +92,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Build suspense
-	fmt.Print("And the winner is ... ")
-
 	// Spawn goroutines
 	winnerChannel := make(chan string, routines)
 	for i := 0; i < routines; i++ {

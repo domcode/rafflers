@@ -28,6 +28,6 @@ RUN go get github.com/arbovm/levenshtein
 COPY main.go "$GOPATH/src/github.com/domcode/rafflers/rpkamp-go"
 RUN go install
 
-VOLUME ["/var/data"]
+VOLUME ["/var/names"]
 
-ENTRYPOINT ["/go/bin/rpkamp-go"]
+ENTRYPOINT ["/go/bin/rpkamp-go", "/var/names/current"]

@@ -21,5 +21,5 @@ fn main() {
     let chosen_one = rand::thread_rng().choose(&names)
                                        .expect("The list of names is empty");
 
-    println!("The winner is: {}", chosen_one);
+    println!("{}", chosen_one);
 }

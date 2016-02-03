@@ -1,5 +1,5 @@
 FROM php:7-cli
-MAINTAINER lucas@vanlierop.org
+MAINTAINER hi@ceesjankiewiet.nl
 ENV LANG C.UTF-8
 
 # Create working dir

@@ -1,10 +1,13 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/bash
 
-docker build -t aochagavia_rust_raffler aochagavia-rust
-docker build -t shawnmccool_scala_raffler shawnmccool-scala
-docker build -t basbl_zsh_raffler basbl-zsh
-docker build -t lucasvanlierop_cobol_raffler lucasvanlierop-cobol
-docker build -t rjkip_elixir_raffler rjkip-elixir
-docker build -t sgoettschkes_haskell_raffler sgoettschkes-haskell
-docker build -t wyrihaximus_php7_raffler wyrihaximus-php7
+dockerfiles=$(ls */Dockerfile)
+for file in $dockerfiles; do
+	dir=${file:0:-11}
+	container=${dir/-/_}"_raffler"
+	if [ $(docker images | awk '{print $1}' | grep -c '^'"$container"'$') -eq 0 ]; then
+		echo "Building $container from $dir"
+		docker build -t "$container" "$dir"
+	else
+		echo "Skipping $container - already exists"
+	fi
+done

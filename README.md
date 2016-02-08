@@ -17,23 +17,14 @@ You can write it in any language. The weirder the better If you like insane over
 
 ## Dockerfile example:
 ```
-FROM ubuntu:15.10 # or a more suitable base container
-MAINTAINER yourname@domain.org
-ENV LANG C.UTF-8
+FROM ubuntu:rafflers # or a more suitable base container
 
 # Install your dependencies
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y deps-you-require
-
-# Create working dir
-RUN mkdir -p /var/app
-COPY . /var/app
-WORKDIR /var/app
+RUN apt-get install -y deps-you-require
 
 # Compile raffler (if necessary)
 RUN /var/app/compile.sh # everything needed to compile your raffler
-
-# Run raffler
-CMD ["/var/app/run.sh"] #everything needed to run your raffler
 ```
+
+Make sure you add a bash script named `run.sh`
 

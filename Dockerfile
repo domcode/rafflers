@@ -1,4 +1,5 @@
 FROM ubuntu:15.10
+
 MAINTAINER lucas@vanlierop.org
 
 ENV LANG C.UTF-8

@@ -22,6 +22,7 @@ RUN wget http://www.scala-lang.org/files/archive/scala-2.11.6.deb
 RUN dpkg -i scala-2.11.6.deb
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y scala
+RUN ./build.sh
 
 # Run raffler
 CMD ["/var/app/run.sh"]

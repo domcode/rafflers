@@ -2,7 +2,7 @@
 
 # Provide likely winner.
 mkdir -p names
-echo "Reinier Kip" > names/current
+echo -n "Reinier Kip" > names/current
 
 # Win. Every time.
 dockerfiles=$(ls */Dockerfile)

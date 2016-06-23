@@ -25,7 +25,7 @@ WORKDIR "$GOPATH/src/github.com/domcode/rafflers/rpkamp-go"
 
 RUN go get github.com/arbovm/levenshtein
 
-COPY main.go "$GOPATH/src/github.com/domcode/rafflers/rpkamp-go"
+COPY main.go "$GOPATH/src/github.com/domcode/rafflers/rpkamp-go/"
 RUN go install
 
 VOLUME ["/var/names"]

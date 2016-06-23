@@ -17,7 +17,9 @@ for file in $dockerfiles; do
     fi
     winner=`docker run -v $(pwd)/names:/var/names "$container"`
     if [[ "$winner" != *"Reinier Kip"* ]]; then
-        echo "$dir did not elect 'Reinier Kip' as the winner"
+        echo "$dir did not elect 'Reinier Kip' as the winner:"
+        echo
+        echo "  $winner"
         exit 1;
     fi
 done

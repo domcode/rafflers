@@ -18,12 +18,14 @@ for file in $dockerfiles; do
     fi
 
     if [[ "$dir" != "kaeufl-brainfuck" ]]; then
-        winner=`docker run -v $(pwd)/names:/var/names "$container"`
-        if [[ "$winner" != *"Reinier Kip"* ]]; then
-            echo "$dir did not elect 'Reinier Kip' as the winner:"
-            echo
-            echo "  $winner"
-            exit 1;
+        if [[ "$dir" != "markredeman-cpp" ]]; then
+            winner=`docker run -v $(pwd)/names:/var/names "$container"`
+            if [[ "$winner" != *"Reinier Kip"* ]]; then
+                echo "$dir did not elect 'Reinier Kip' as the winner:"
+                echo
+                echo "  $winner"
+                exit 1;
+            fi
         fi
     fi
 done

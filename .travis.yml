@@ -1,4 +1,4 @@
 services: [docker]
 
 script:
-  - ./test.sh
+  - ./build.sh

@@ -1,11 +1,8 @@
-FROM php:7-cli
-MAINTAINER hi@ceesjankiewiet.nl
-ENV LANG C.UTF-8
+FROM php:7.0.7-alpine
 
-# Create working dir
-RUN mkdir -p /var/app
-COPY . /var/app
-WORKDIR /var/app
+RUN mkdir -p /app
+COPY raffler.php /app
 
-# Run raffler
-CMD ["/var/app/run.sh"]
+VOLUME ["/var/names"]
+
+ENTRYPOINT ["php", "/app/raffler.php", "/var/names/current"]

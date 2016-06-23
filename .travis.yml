@@ -1,2 +1,4 @@
 services: [docker]
-script: ./build.sh
+
+script:
+  - ./test.sh

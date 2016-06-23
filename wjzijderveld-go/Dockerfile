@@ -23,7 +23,7 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/src/github.com/domcode/rafflers/wjzijderveld-go" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR "$GOPATH/src/github.com/domcode/rafflers/wjzijderveld-go"
 
-COPY raffler.go "$GOPATH/src/github.com/domcode/rafflers/wjzijderveld-go"
+COPY raffler.go "$GOPATH/src/github.com/domcode/rafflers/wjzijderveld-go/"
 RUN go install
 
 VOLUME ["/var/names"]

@@ -7,4 +7,4 @@ COPY . /var/app
 WORKDIR /var/app
 
 # Run raffler
-CMD ["node", "/var/app/raffler.js", "/var/names"]
+CMD ["node", "/var/app/raffler.js", "/var/names/current"]

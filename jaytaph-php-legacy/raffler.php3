@@ -18,16 +18,8 @@ while ($line = fgets($fp, 4096)) {
     $sFile .= $line;
 }
 }
-if (isset($file)) {
-$sFile = '';
-$fp = fopen($file, 'r');
-while ($line = fgets($fp, 4096)) {
-    $sFile .= $line;
-}
-}
 
-// Use single quotes here for performance reasons
-$aNames = split("\n", $sFile);
+$aNames = split("\n", rtrim($sFile));
 $iRandomNumber = rand() % count($aNames);
 ?>
 

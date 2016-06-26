@@ -2,3 +2,6 @@
 .idea/
 bauro-haproxy/.vagrant
 names
+
+# Used while testing
+/.names-test/

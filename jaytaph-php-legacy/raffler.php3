@@ -9,17 +9,26 @@
 <BODY>
 
 <?php
-if (php_sapi_name() == "cli") {
-$sFile = file_get_contents($argv[1]);
+$time = explode(" ", microtime());
+srand($time[1]);
+if (isset($argv[1])) {
+$sFile = '';
+$fp = fopen($argv[1], 'r');
+while ($line = fgets($fp, 4096)) {
+    $sFile .= $line;
 }
-if (php_sapi_name() == "apache") {
-$sFile = file_get_contents($_GET['filename']);
+}
+if (isset($file)) {
+$sFile = '';
+$fp = fopen($file, 'r');
+while ($line = fgets($fp, 4096)) {
+    $sFile .= $line;
+}
 }
 
 // Use single quotes here for performance reasons
 $aNames = split("\n", $sFile);
-$iRandomNumber = rand(0, count($aNames)-1);
-
+$iRandomNumber = rand() % count($aNames);
 ?>
 
 <MARQUEE>The winner is:<BLINK> <?php echo $aNames[$iRandomNumber]; ?></MARQUEE></BLINK>

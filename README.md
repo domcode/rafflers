@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/domcode/rafflers.svg?branch=master)](https://travis-ci.org/domcode/rafflers)
+
 # rafflers
 A collection of fun, funky, esoteric rafflers
 
@@ -17,7 +19,7 @@ You can write it in any language. The weirder the better If you like insane over
 
 ## Dockerfile example:
 ```
-FROM ubuntu:rafflers # or a more suitable base container
+FROM baseimage # or a more suitable base container
 
 # Install your dependencies
 RUN apt-get install -y deps-you-require
@@ -25,6 +27,3 @@ RUN apt-get install -y deps-you-require
 # Compile raffler (if necessary)
 RUN /var/app/compile.sh # everything needed to compile your raffler
 ```
-
-Make sure you add a bash script named `run.sh`
-

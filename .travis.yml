@@ -1,4 +1,8 @@
 services: [docker]
 
+before_script:
+  # Ancient make binary at TravisCI doesn't support indentation with spaces
+  - unexpand -t 4 Makefile > Makefile.tmp && mv Makefile.tmp Makefile
+
 script:
   - make test

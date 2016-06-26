@@ -5,7 +5,12 @@ mkdir -p .names-test
 echo "Reinier Kip" > .names-test/current
 
 # Win. Every time.
-dockerfiles=$(ls */Dockerfile)
+if [[ "$1" ]]; then
+    dockerfiles=("$1/Dockerfile")
+else
+    dockerfiles=$(ls */Dockerfile)
+fi
+
 for file in $dockerfiles; do
     dir=${file:0:-11}
     container=${dir/-/_}"_raffler"

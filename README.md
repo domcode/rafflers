@@ -40,5 +40,6 @@ $ make raffle NAMES=/tmp/your-names-file
 ### Test that Dockerised rafflers work
 
 ```shell-session
-$ make test
+$ make test                         # Tests all rafflers
+$ make test RAFFLER=remyhonig-elisp # Tests only the raffler in ./remyhonig-elisp
 ```

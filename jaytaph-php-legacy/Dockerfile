@@ -22,7 +22,7 @@ RUN CFLAGS=Wno make
 RUN make install
 
 RUN mkdir -p /app
-COPY raffler.php3 /app
-COPY config.inc /app
+COPY raffler.php3 /app/
+COPY config.inc /app/
 
 ENTRYPOINT ["php", "/app/raffler.php3", "/var/names/current"]

@@ -12,4 +12,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 # make sure that when we run the container using the standard of /var/names filled with the names, it can be read from the /var/app glitch app
 RUN ln -s /var/names /var/app/names
 
-CMD ["php", "/var/app/vendor/bin/glitch", "raffler.g", "names"]
+CMD ["php", "/var/app/vendor/bin/glitch", "raffler.g", "names/current"]

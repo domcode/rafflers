@@ -47,11 +47,11 @@
             ! Read the amount of lines up to the line containing the
             ! winner
             DO ITER=1,WinnerLine
-              READ(1,*)
+              READ(1,'(A)')
             ENDDO
 
             ! Read the line containing the winner
-            READ(1,*) Winner
+            READ(1,'(A)') Winner
 
             ! **PARTY**
             PRINT*, "Ladies and Gentlemen, the winner is: " // Winner

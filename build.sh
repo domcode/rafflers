@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Using docker(`docker version -f "{{.Server.Version}} / {{.Client.Version}}"`) to build containers..."
+echo "Using docker(`docker version -f "{{.Server.Version}} / {{.Client.Version}}"`) to build container images..."
 
 if [[ "$1" && "$1" != "--rebuild" ]]; then
     dockerfiles=("$1/Dockerfile")
@@ -10,15 +10,15 @@ fi
 
 for file in $dockerfiles; do
 	dir=${file:0:-11}
-	container=${dir/-/_}"_raffler"
-	if [[ $1 == "--rebuild" || $(docker images | awk '{print $1}' | grep -c '^'"$container"'$') -eq 0 ]]; then
-		echo "Building $container from $dir"
-		docker build -q -t "$container" "$dir"
+	tag="domcode/raffler:${dir/-/_}"
+	if [[ $1 == "--rebuild" || $(docker images | awk '{print $1}' | grep -c '^'"$tag"'$') -eq 0 ]]; then
+		echo "Building $tag from $dir"
+		docker build -q -t "$tag" "$dir"
 		if [[ $? != 0 ]]; then
 			echo "Build failed!"
 			exit 1
 		fi
 	else
-		echo "Skipping $container - already exists"
+		echo "Skipping $tag - already exists"
 	fi
 done

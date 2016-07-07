@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER robin@kingsquare.org
+MAINTAINER robin@kingsquare.nl
 
 # Create working dir
 RUN mkdir -p /var/app

@@ -4,4 +4,4 @@ Display a winner in your commandline prompt. Because you need a raffle winner, a
 Make sure your raffle.txt is in the root directory.
 Run on bash with:
 
-      source raffle.sh
+      source raffle.sh ../example_names

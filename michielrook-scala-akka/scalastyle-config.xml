@@ -1,0 +1,80 @@
+<scalastyle>
+ <name>Scalastyle configuration</name>
+ <check level="warning" class="org.scalastyle.file.FileTabChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.SpacesAfterPlusChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.file.WhitespaceEndOfLineChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.SpacesBeforePlusChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.file.FileLineLengthChecker" enabled="true">
+  <parameters>
+   <parameter name="maxLineLength"><![CDATA[160]]></parameter>
+   <parameter name="tabSize"><![CDATA[4]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.ClassNamesChecker" enabled="true">
+  <parameters>
+   <parameter name="regex"><![CDATA[[A-Z][A-Za-z]*]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.ObjectNamesChecker" enabled="true">
+  <parameters>
+   <parameter name="regex"><![CDATA[[A-Z][A-Za-z]*]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.PackageObjectNamesChecker" enabled="true">
+  <parameters>
+   <parameter name="regex"><![CDATA[^[a-z][A-Za-z]*$]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.EqualsHashCodeChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.IllegalImportsChecker" enabled="true">
+  <parameters>
+   <parameter name="illegalImports"><![CDATA[sun._]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.NoWhitespaceBeforeLeftBracketChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.NoWhitespaceAfterLeftBracketChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.ReturnChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.NullChecker" enabled="false"/>
+ <check level="warning" class="org.scalastyle.scalariform.NoCloneChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.NoFinalizeChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.CovariantEqualsChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.StructuralTypeChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
+  <parameters>
+   <parameter name="regex"><![CDATA[println]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.UppercaseLChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.SimplifyBooleanExpressionChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.scalariform.IfBraceChecker" enabled="true">
+  <parameters>
+   <parameter name="singleLineAllowed"><![CDATA[true]]></parameter>
+   <parameter name="doubleLineAllowed"><![CDATA[false]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.MethodNamesChecker" enabled="true">
+  <parameters>
+   <parameter name="regex"><![CDATA[^[a-z][A-Za-z0-9]*$]]></parameter>
+  </parameters>
+ </check>
+ <check level="warning" class="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" enabled="false"/>
+ <check level="warning" class="org.scalastyle.file.NewLineAtEofChecker" enabled="true"/>
+ <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
+  <parameters>
+   <parameter name="regex">(\r?\n){3,}</parameter>
+  </parameters>
+  <customMessage>No duplicate blank lines</customMessage>
+ </check>
+ <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
+  <parameters>
+   <parameter name="regex">\{(\r?\n){2,}</parameter>
+  </parameters>
+  <customMessage>No blank lines at beginning of block</customMessage>
+ </check>
+ <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
+  <parameters>
+   <parameter name="regex">(\r?\n){2,}\t*\}</parameter>
+  </parameters>
+  <customMessage>No blank lines at end of block</customMessage>
+ </check>
+</scalastyle>

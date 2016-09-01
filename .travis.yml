@@ -1,12 +1,5 @@
 services: [docker]
 
-env:
-  DOCKER_VERSION: 1.10.1-0~trusty # At the moment of writing Travis supported v1.8.2
-
-before_install:
-  # upgrade docker-engine to newer version
-  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
-
 before_script:
   - docker version
   - docker login --email=$DOCKER_EMAIL --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD

@@ -1,0 +1,45 @@
+local fileName = vargv[0];
+
+const NEWLINE = 10;
+const SPACE = 32;
+
+local ascii = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+function mapAscii(char) {
+	local lowercase = char - 97;
+	if ( lowercase >= 0 ) {
+		return ascii[lowercase];
+	}
+	local uppercase = char - 65;
+        if ( uppercase >= 0 ) {
+                return ascii[uppercase].toupper();
+	}
+	if ( char == SPACE ) {
+		return " ";
+	}
+	return "";
+}
+
+local names = file(fileName,"rb");
+local data = names.readblob(1000);
+
+local lines = [];
+local line = "";
+local i = 0;
+
+while(data.eos() == null) {
+	local char = data.readn('c');
+	if ( char == NEWLINE ) {
+		lines.append(line);
+		line = "";
+	}
+	else {
+		line = line + mapAscii(char);
+	}
+}
+
+local seed = time();
+srand(seed);
+local rand = rand() % lines.len();
+
+print(lines[rand]);

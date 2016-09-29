@@ -1,2 +1,0 @@
-docker build -t arnovr_squirrel . && docker run -i -t arnovr_squirrel
-

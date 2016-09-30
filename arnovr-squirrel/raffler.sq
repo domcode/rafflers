@@ -21,7 +21,7 @@ function mapAscii(char) {
 }
 
 local names = file(fileName,"rb");
-local data = names.readblob(1000);
+local data = names.readblob(10000);
 
 local lines = [];
 local line = "";
@@ -41,5 +41,4 @@ while(data.eos() == null) {
 local seed = time();
 srand(seed);
 local rand = rand() % lines.len();
-
 print(lines[rand]);

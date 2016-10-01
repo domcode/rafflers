@@ -9,7 +9,7 @@ rebuild:
     ./build.sh --rebuild
 
 test: rebuild
-    ./test.sh ${RAFFLER}
+    ./test.sh
 
 raffle:
     ./raffle.sh ${NAMES}

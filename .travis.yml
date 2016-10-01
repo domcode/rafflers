@@ -7,7 +7,7 @@ before_script:
   - unexpand -t 4 Makefile > Makefile.tmp && mv Makefile.tmp Makefile
 
 script:
-  - make test
+  - if [ "${TRAVIS_BRANCH}" == "master" ]; then make test; else make test-changed; fi
 
 after_success:
   - if [ "$DOCKER_USERNAME" != "" ] && [ "$TRAVIS_BRANCH" == "master" ]; then docker push domcode/raffler; fi

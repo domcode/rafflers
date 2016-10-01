@@ -10,4 +10,4 @@ script:
   - make test
 
 after_success:
-  - if [ "$DOCKER_USERNAME" != "" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push domcode/raffler; fi
+  - if [ "$DOCKER_USERNAME" != "" ] && [ "$TRAVIS_BRANCH" == "master" ]; then docker push domcode/raffler; fi

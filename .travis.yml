@@ -5,7 +5,7 @@ before_script:
   - unexpand -t 4 Makefile > Makefile.tmp && mv Makefile.tmp Makefile
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then make test; else make test-changed; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then make test-changed; else make test; fi
 
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD && docker push domcode/raffler; fi

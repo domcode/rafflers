@@ -7,6 +7,8 @@ echo "Reinier Kip" > .names-test/current
 # Win. Every time.
 if [[ "$1" ]]; then
     dockerfiles=("$1/Dockerfile")
+elif [[ "${RAFFLER}" ]]; then
+    dockerfiles=("${RAFFLER}/Dockerfile")
 else
     dockerfiles=$(ls */Dockerfile)
 fi

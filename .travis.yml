@@ -1,13 +1,11 @@
 services: [docker]
 
 before_script:
-  - docker version
-  - docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
   # Ancient make binary at TravisCI doesn't support indentation with spaces
   - unexpand -t 4 Makefile > Makefile.tmp && mv Makefile.tmp Makefile
 
 script:
-  - make test
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then make test-changed; else make test; fi
 
 after_success:
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker push domcode/raffler; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD && docker push domcode/raffler; fi

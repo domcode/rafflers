@@ -29,7 +29,7 @@ public class RaffleReader implements IReader {
 	private String fileLocation;
 	private RaffleParticipantDataKeeperClassThing dataKeeper;
 	
-	private static final int rangeForKeys = 2;
+	private static final int rangeForKeys = 5;
 	
 	@Override
 	public boolean read() throws Exception {

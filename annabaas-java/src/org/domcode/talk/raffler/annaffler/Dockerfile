@@ -1,13 +1,13 @@
-FROM java:jdk-alpine
-MAINTAINER robin@kingsquare.org
+ROM java:jdk-alpine
+MAINTAINER <jemailadres>
 
 # Create working dir
 RUN mkdir -p /var/app
-COPY Annaffler.java /var/app/Annaffler.java
+COPY src /var/app
 WORKDIR /var/app
 
 # Compile
-RUN javac -g Annaffler.java
+RUN javac -g org/domcode/talk/raffler/annaffler/application/Annaffler.java
 
 # Run raffler
-CMD ["java", "Annaffler", "/var/names/current"]
+CMD ["java", "org/domcode/talk/raffler/annaffler/application/Annaffler", "/var/names/current"]

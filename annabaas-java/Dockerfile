@@ -1,5 +1,5 @@
-ROM java:jdk-alpine
-MAINTAINER <jemailadres>
+FROM java:jdk-alpine
+MAINTAINER annabaas@gmail.com
 
 # Create working dir
 RUN mkdir -p /var/app

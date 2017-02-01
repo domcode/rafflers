@@ -3,5 +3,11 @@
 bauro-haproxy/.vagrant
 names
 
+# borkdude-clojure
+.nrepl-history
+.nrepl-port
+/borkdude-clojure/target
+
 # Used while testing
 /.names-test/
+

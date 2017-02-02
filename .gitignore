@@ -8,6 +8,9 @@ names
 .nrepl-port
 /borkdude-clojure/target
 
+# borkdude-cljs-node-lumo
+/borkdude-cljs-node-lumo/node_modules
+
 # Used while testing
 /.names-test/
 

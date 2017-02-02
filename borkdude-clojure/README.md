@@ -2,10 +2,10 @@
 
 ## Building
 
-    docker build -t borkdude/domcode-raffler .
+    docker build -t borkdude/domcode-raffler-clj .
 
 ## Running
 
 Place the list of names in `/tmp/names/current` and then run:
 
-    docker run -v /tmp/names:/var/names borkdude/domcode-raffler
+    docker run -v /tmp/names:/var/names borkdude/domcode-raffler-clj

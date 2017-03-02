@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "DomCode sample raffler",
-    "repository": "https://github.com/domcode/raffler.git",
+    "repository": "https://github.com/domcode/rafflers.git",
     "license": "MIT",
     "source-directories": [
         "."

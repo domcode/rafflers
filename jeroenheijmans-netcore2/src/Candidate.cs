@@ -23,9 +23,8 @@ namespace Raffler
             string result = "";
             lock (lockObject)
             {
-                result = tagLines[i];
-                i++;
-                if (i > tagLines.Length)
+                result = tagLines[i++];
+                if (i > tagLines.Length - 1)
                 {
                     i = 0;
                 }
@@ -46,6 +45,11 @@ namespace Raffler
         public override string ToString() => $"{Name}, {TagLine}".ToUpperInvariant();
 
         static public implicit operator Candidate(string candidateName)
+        {
+            return new Candidate(candidateName);
+        }
+
+        static public Candidate AsCandidate(string candidateName)
         {
             return new Candidate(candidateName);
         }

@@ -4,45 +4,44 @@ namespace Raffler
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
     using static System.Console;
 
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                throw new InvalidOperationException("Please provide path to the candidates as the first argument.");
+            }
+
             var randomizer = new InefficientRandomizer<Candidate>();
-            var candidates = GetCandidates();
+            var candidates = GetCandidates(args[0]);
             var raffler = new Raffler(randomizer, candidates);
 
-            do
+            try
             {
-                try
-                {
-                    SelectWinner(raffler);
-                }
-                catch (NoMoreCandidatesException)
-                {
-                    WriteLine("Everybody's already one! So everybody's getting another turn!");
-                    raffler.Reset();
-                    SelectWinner(raffler);
-                }
-
-                WriteLine("Press Q to quit, or any other key to pick another winner!");
-
-            } while (ReadKey(true).Key.ToString().ToLowerInvariant() != "q");
+                var winner = raffler.Raffle();
+                WriteLine($"{winner}, chosen by a(n) {randomizer.GetType().Name}.");
+            }
+            catch (NoMoreCandidatesException)
+            {
+                WriteLine("There's no one left to win!");
+            }
         }
 
-        private static void SelectWinner(Raffler raffler)
+        private static IEnumerable<Candidate> GetCandidates(string path)
         {
-            WriteLine();
-            var winner = raffler.Raffle();
-            WriteLine(winner);
-            WriteLine();
-        }
+            if (!File.Exists(path))
+            {
+                throw new ArgumentException($"No file at {path} exists.");
+            }
 
-        static IEnumerable<Candidate> GetCandidates()
-        {
-            return new Candidate[] { "JohnDoe", "Marc", "pieter de man" };
+            return File.ReadAllText(path)
+                .SplitInLines()
+                .Select(Candidate.AsCandidate);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Raffler
     using System.Collections.Generic;
     using System.Linq;
 
-    class InefficientRandomizer<T> : IRandomItemPicker<T>
+    public class InefficientRandomizer<T> : IRandomItemPicker<T>
     {
         public T PickOne(IEnumerable<T> candidates)
         {

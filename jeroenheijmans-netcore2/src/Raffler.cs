@@ -4,7 +4,7 @@ namespace Raffler
     using System.Collections.Generic;
     using System.Linq;
 
-    public class Raffler
+    public class Raffler : IRaffler
     {
         private readonly IRandomItemPicker<Candidate> randomizer;
         private readonly IList<Candidate> candidates;

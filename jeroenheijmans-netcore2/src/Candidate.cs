@@ -12,6 +12,13 @@ namespace Raffler
             "Chef of Chefs",
             "Boss of the Bosses",
             "Slayer of Bugs",
+            "Jack of All Trades, Master of None",
+            "Ender of Bugs",
+            "The Agile Bug Hunter",
+            "The FactoryFactory Killer",
+            "Luckdestroyer",
+            "a.k.a. the 'There Are ZERO Hard Problems in Computer Programming' don",
+            "Cacheblamer",
         };
 
         private static int i = 0;

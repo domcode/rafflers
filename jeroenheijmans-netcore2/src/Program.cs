@@ -24,7 +24,13 @@ namespace Raffler
             try
             {
                 var winner = raffler.Raffle();
-                WriteLine($"{winner}, chosen by a(n) {randomizer.GetType().Name}.");
+                
+                // It would be awesome if we could do this:
+                // WriteLine($"{winner}, chosen by a(n) {randomizer.GetType().Name}.");
+                // However, the current build/test system for rafflers does
+                // not support this yet.
+                // So we do the boring thing, for now:
+                WriteLine(winner.Name);
             }
             catch (NoMoreCandidatesException)
             {
@@ -41,6 +47,7 @@ namespace Raffler
 
             return File.ReadAllText(path)
                 .SplitInLines()
+                .Where(s => !String.IsNullOrWhiteSpace(s))
                 .Select(Candidate.AsCandidate);
         }
     }

@@ -3,9 +3,6 @@
 namespace Raffler
 {
     using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using static System.Console;
 
     public class Program
@@ -18,7 +15,7 @@ namespace Raffler
             }
 
             var randomizer = new InefficientRandomizer<Candidate>();
-            var candidates = GetCandidates(args[0]);
+            var candidates = CandidatesSource.GetCandidates(args[0]);
             var raffler = new Raffler(randomizer, candidates);
 
             try
@@ -34,21 +31,14 @@ namespace Raffler
             }
             catch (NoMoreCandidatesException)
             {
+                // This seems silly, but the Raffler was actually originally built with
+                // support for multi-raffling (e.g. "Pick another winner? [Y/n]"), but
+                // the way Rafflers are run with a container is not interactive.
+                //
+                // We leave this here though, so we may one day resurrect this code!
+
                 WriteLine("There's no one left to win!");
             }
-        }
-
-        private static IEnumerable<Candidate> GetCandidates(string path)
-        {
-            if (!File.Exists(path))
-            {
-                throw new ArgumentException($"No file at {path} exists.");
-            }
-
-            return File.ReadAllText(path)
-                .SplitInLines()
-                .Where(s => !String.IsNullOrWhiteSpace(s))
-                .Select(Candidate.AsCandidate);
         }
     }
 }

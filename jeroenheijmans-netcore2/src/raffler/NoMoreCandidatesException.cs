@@ -5,7 +5,7 @@ namespace Raffler
     public class NoMoreCandidatesException : Exception
     { 
         public NoMoreCandidatesException(string message) 
-            :base(message) 
+            : base(message) 
         {            
         }
     }

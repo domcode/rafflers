@@ -35,12 +35,20 @@ RUN mkdir warmup \
     && rm -rf warmup \
     && rm -rf /tmp/NuGetScratch
 
+#################################################################
 # Above is the Microsoft template, below is the app stuff:
+
+# Setup folders
 RUN mkdir -p /var/app
 COPY src /var/app
 WORKDIR /var/app
+
+# Restore NuGet Packages and build both projects
 RUN dotnet restore
 RUN dotnet build
-RUN ls "/"
 
-CMD ["dotnet", "run", "/var/names/current"]
+# Run the unit tests (very important! :D) and exit upon failures
+RUN dotnet test Raffler.Tests
+
+# All set, run the actual raffler!
+CMD ["dotnet", "run", "-p", "Raffler/Raffler.csproj", "/var/names/current"]

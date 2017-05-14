@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>false</IsPackable>
+    <RootNamespace>Raffler.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\raffler\raffler.csproj" />
+    <ProjectReference Include="..\Raffler\Raffler.csproj" />
   </ItemGroup>
 
 </Project>

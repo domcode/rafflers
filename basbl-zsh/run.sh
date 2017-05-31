@@ -1,2 +1,2 @@
 #!/bin/sh
-/bin/zsh ./raffler /var/names/current
+/bin/zsh ./raffler /var/names.txt

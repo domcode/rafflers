@@ -7,4 +7,4 @@ COPY raffler.py /var/app/raffler.py
 WORKDIR /var/app
 
 # Run raffler
-CMD ["python", "/var/app/raffler.py", "/var/names/current"]
+CMD ["python", "/var/app/raffler.py", "/var/names.txt"]

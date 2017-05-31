@@ -51,4 +51,4 @@ RUN dotnet build
 RUN dotnet test Raffler.Tests
 
 # All set, run the actual raffler!
-CMD ["dotnet", "run", "-p", "Raffler/Raffler.csproj", "/var/names/current"]
+CMD ["dotnet", "run", "-p", "Raffler/Raffler.csproj", "/var/names.txt"]

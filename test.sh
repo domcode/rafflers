@@ -2,7 +2,7 @@
 
 # Provide likely winner. Some rafflers support trailing newline, other do not.
 mkdir -p .names-test
-echo "Reinier Kip" > .names-test/current
+echo "Reinier Kip" > .names-test/names.txt
 
 # Win. Every time.
 if [[ "$1" ]]; then
@@ -27,7 +27,7 @@ for file in $dockerfiles; do
 
     # Run the raffler 5 times so we're kind of sure it doesn't pick the empty line as the winner.
     for attempt in 1 2 3 4 5; do
-        winner=`docker run --rm=true -v $(pwd)/.names-test:/var/names "$tag"`
+        winner=`docker run --rm=true -v $(pwd)/.names-test/names.txt:/var/names.txt "$tag"`
         if [[ "$winner" != *"Reinier Kip"* ]]; then
             echo "$dir did not elect 'Reinier Kip' as the winner after raffle attempt $attempt:"
             echo

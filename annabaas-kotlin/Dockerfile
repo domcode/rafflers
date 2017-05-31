@@ -39,4 +39,4 @@ WORKDIR /var/app
 RUN kotlinc Raffler.kt -include-runtime -d Raffler.jar
 
 # Run raffler
-CMD ["java", "-cp", "Raffler.jar", "Raffler", "/var/names/current"]
+CMD ["java", "-cp", "Raffler.jar", "Raffler", "/var/names.txt"]

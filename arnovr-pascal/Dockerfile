@@ -7,4 +7,4 @@ RUN chmod +x /app/raffler.p
 RUN pc /app/raffler.p
 
 WORKDIR /app
-CMD ["./raffler", "/var/names/current"]
+CMD ["./raffler", "/var/names.txt"]

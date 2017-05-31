@@ -6,4 +6,4 @@ COPY raffler.nim ./raffler.nim
 
 RUN nim compile --define:release --out:raffler raffler.nim
 
-ENTRYPOINT ./raffler /var/names/current
+ENTRYPOINT ./raffler /var/names.txt

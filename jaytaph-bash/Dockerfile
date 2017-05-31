@@ -7,4 +7,4 @@ RUN mkdir -p /var/app
 WORKDIR /var/app
 COPY raffle.sh /var/app
 
-CMD ["bash", "/var/app/raffle.sh", "/var/names/current"]
+CMD ["bash", "/var/app/raffle.sh", "/var/names.txt"]

@@ -8,4 +8,4 @@ RUN mkdir -p /var/app
 COPY ./raffler.jl /var/app
 WORKDIR /var/app
 
-CMD ["julia", "raffler.jl", "/var/names/current"]
+CMD ["julia", "raffler.jl", "/var/names.txt"]

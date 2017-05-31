@@ -14,7 +14,7 @@ Ansible (tested on 2.3.0.0).
 Run
 ---
 
-If /var/names/current contains a list of names:
+If /var/names.txt contains a list of names:
 
     $ ansible-playbook raffler.yml
 

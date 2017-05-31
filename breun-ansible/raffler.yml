@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   vars:
-    filename: "{{ file | default('/var/names/current') }}"
+    filename: "{{ file | default('/var/names.txt') }}"
   tasks:
   - debug:
       msg: "{{ item }}"

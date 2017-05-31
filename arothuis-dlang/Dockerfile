@@ -7,4 +7,4 @@ WORKDIR /var/app
 
 RUN dmd raffler.d
 
-CMD ["/var/app/raffler", "/var/names/current"]
+CMD ["/var/app/raffler", "/var/names.txt"]

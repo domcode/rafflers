@@ -4,4 +4,4 @@ RUN mkdir -p /app
 COPY raffler.php3 /app/
 COPY config.inc /app/
 
-ENTRYPOINT ["php", "/app/raffler.php3", "/var/names/current"]
+ENTRYPOINT ["php", "/app/raffler.php3", "/var/names.txt"]

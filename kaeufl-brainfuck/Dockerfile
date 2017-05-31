@@ -5,4 +5,4 @@ WORKDIR /var/app
 COPY . /var/app
 RUN nasm -f bin -o bf bf.asm && chmod ug+x bf
 RUN /var/app/bf < raffler.b > raffler && chmod ug+x raffler
-CMD /var/app/raffler /var/names/current
+CMD /var/app/raffler /var/names.txt

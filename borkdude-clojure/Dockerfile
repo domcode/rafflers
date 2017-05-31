@@ -5,4 +5,4 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 RUN boot build
-CMD ["java", "-jar", "target/raffler.jar", "/var/names/current"]
+CMD ["java", "-jar", "target/raffler.jar", "/var/names.txt"]

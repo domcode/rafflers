@@ -8,4 +8,4 @@ RUN mkdir -p /var/app
 COPY ./raffler.scm /var/app
 WORKDIR /var/app
 
-CMD ["/var/app/raffler.scm", "/var/names/current"]
+CMD ["/var/app/raffler.scm", "/var/names.txt"]

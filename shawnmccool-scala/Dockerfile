@@ -7,4 +7,4 @@ COPY Raffler.scala /var/app
 WORKDIR /var/app
 
 # Run raffler
-CMD ["scala", "-cp", ".", "Raffler.scala", "/var/names/current"]
+CMD ["scala", "-cp", ".", "Raffler.scala", "/var/names.txt"]

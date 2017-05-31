@@ -7,4 +7,4 @@ COPY . /var/app
 WORKDIR /var/app
 
 # Run raffler
-CMD ["ruby", "/var/app/raffler.rb", "/var/names/current"]
+CMD ["ruby", "/var/app/raffler.rb", "/var/names.txt"]

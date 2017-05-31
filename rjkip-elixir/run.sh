@@ -1,2 +1,2 @@
 #!/bin/sh
-elixir raffler.exs /var/names/current
+elixir raffler.exs /var/names.txt

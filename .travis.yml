@@ -1,11 +1,91 @@
 services: [docker]
 
+matrix:
+  allow_failures:
+    env:
+    - RAFFLER=annabaas-java
+    - RAFFLER=annabaas-kotlin
+    - RAFFLER=aochagavia-rust
+    - RAFFLER=arnovr-pascal
+    - RAFFLER=arnovr-squirrel
+    - RAFFLER=arothuis-dlang
+    - RAFFLER=basbl-elixir
+    - RAFFLER=basbl-zsh
+    - RAFFLER=bauro-ansible
+    - RAFFLER=bauro-haproxy
+    - RAFFLER=bkors-java-spring-boot-enterprice
+    - RAFFLER=borkdude-cljs-node-lumo
+    - RAFFLER=borkdude-clojure
+    - RAFFLER=breun-ansible
+    - RAFFLER=breun-groovy
+    - RAFFLER=breun-java
+    - RAFFLER=breun-kotlin
+    - RAFFLER=breun-python
+    - RAFFLER=daniellemccool-r
+    - RAFFLER=dennisdegreef-actionscript3
+    - RAFFLER=Dockerfile
+    - RAFFLER=drvanr-FORTRAN
+    - RAFFLER=drvanr-lua
+    - RAFFLER=duijf-julia
+    - RAFFLER=erikaheidi-c
+    - RAFFLER=example_names
+    - RAFFLER=frankdejonge-rust
+    - RAFFLER=jaytaph-awk
+    - RAFFLER=jaytaph-bash
+    - RAFFLER=jaytaph-bootsector-asm
+    - RAFFLER=jaytaph-php7-extension
+    - RAFFLER=jaytaph-php-legacy
+    - RAFFLER=jaytaph-saffire
+    - RAFFLER=jeroenheijmans-netcore2
+    - RAFFLER=jeroenvdgulik-java
+    - RAFFLER=kaeufl-brainfuck
+    - RAFFLER=kilte-python3
+    - RAFFLER=lucasvanlierop-agc-assembly
+    - RAFFLER=lucasvanlierop-cobol
+    - RAFFLER=markredeman-cpp
+    - RAFFLER=mathiasverraes-erlang
+    - RAFFLER=mathiasverraes-lambdalicious
+    - RAFFLER=mattp-whitespace
+    - RAFFLER=michielrook-scala-akka
+    - RAFFLER=nickspelt-html
+    - RAFFLER=nickspelt-node
+    - RAFFLER=ramondelafuente-php-array-insanity
+    - RAFFLER=rdohms-lolcode
+    - RAFFLER=rdohms-lua
+    - RAFFLER=remyhonig-elisp
+    - RAFFLER=rjkip-bash
+    - RAFFLER=rjkip-drvanr-pony
+    - RAFFLER=rjkip-elixir
+    - RAFFLER=rjkip-nim
+    - RAFFLER=rjkip-rust
+    - RAFFLER=rosstuck-php
+    - RAFFLER=rpkamp-go
+    - RAFFLER=scato-elm
+    - RAFFLER=scato-glitch
+    - RAFFLER=scato-haxe
+    - RAFFLER=sgoettschkes-haskell
+    - RAFFLER=shawnmccool-scala
+    - RAFFLER=snoek09-perl
+    - RAFFLER=steazzalini-cmake
+    - RAFFLER=steazzalini-mysql
+    - RAFFLER=steazzalini-nodejs
+    - RAFFLER=steazzalini-ocaml
+    - RAFFLER=stelian-python
+    - RAFFLER=stelian-python-objective
+    - RAFFLER=stelian-ruby
+    - RAFFLER=turanct-scheme
+    - RAFFLER=winkbrace-dos-batch
+    - RAFFLER=wjzijderveld-c
+    - RAFFLER=wjzijderveld-go
+    - RAFFLER=wyrihaximus-php7
+
 before_script:
   # Ancient make binary at TravisCI doesn't support indentation with spaces
   - unexpand -t 4 Makefile > Makefile.tmp && mv Makefile.tmp Makefile
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then make test-changed; else make test; fi
+  - make test
+  #- if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then make test-changed; else make test; fi
 
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD && docker push domcode/raffler; fi

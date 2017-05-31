@@ -1,3 +1,3 @@
 FROM williamyeh/ansible:alpine3
 COPY raffler.yml /tmp/
-CMD ["ansible-playbook", "/tmp/raffler.yml"]
+ENTRYPOINT ["ansible-playbook", "/tmp/raffler.yml", "--extra-vars", "file=/var/names.txt"]

@@ -10,4 +10,4 @@ WORKDIR /var/app
 RUN javac -g Raffler.java
 
 # Run raffler
-CMD ["java", "Raffler", "/var/names/current"]
+CMD ["java", "Raffler", "/var/names.txt"]

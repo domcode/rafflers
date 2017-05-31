@@ -8,4 +8,4 @@ COPY script.cljs /usr/src/app
 COPY run.sh /usr/src/app
 RUN chmod +x ./run.sh
 
-CMD ["./run.sh", "/var/names/current"]
+CMD ["./run.sh", "/var/names.txt"]

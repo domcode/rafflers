@@ -6,4 +6,4 @@ RUN apk add --no-cache g++ libstdc++ \
     && mkdir -p /var/app \
     && g++ -std=c++11 raffle.cpp -o raffle \
     && apk del g++
-CMD /var/app/raffle /var/names/current
+CMD /var/app/raffle /var/names.txt

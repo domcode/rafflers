@@ -6,6 +6,6 @@
 
 ## Running
 
-Place the list of names in `/tmp/names/current` and then run:
+Place the list of names in `/tmp/names.txt` and then run:
 
-    docker run -v /tmp/names:/var/names borkdude/domcode-raffler-clj
+    docker run -v /tmp/names.txt:/var/names.txt borkdude/domcode-raffler-clj

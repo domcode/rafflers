@@ -6,4 +6,4 @@ COPY main.pony ./
 
 RUN ponyc
 
-CMD /var/app/app /var/names/current
+CMD /var/app/app /var/names.txt

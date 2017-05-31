@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-scala -cp . Raffler /var/names/current
+scala -cp . Raffler /var/names.txt

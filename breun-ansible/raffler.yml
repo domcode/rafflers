@@ -1,8 +1,6 @@
 - hosts: localhost
   connection: local
-  vars:
-    filename: "{{ file | default('/var/names.txt') }}"
   tasks:
   - debug:
       msg: "{{ item }}"
-    with_random_choice: "{{ lookup('file', filename).split('\n') }}"
+    with_random_choice: "{{ lookup('file', file).split('\n') }}"

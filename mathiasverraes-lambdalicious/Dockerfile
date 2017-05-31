@@ -14,4 +14,4 @@ RUN git clone http://github.com/mathiasverraes/lambdalicious.git && \
     git checkout 6bce3e9dcf02b602c502b09748bc7b47d4af62cb
 
 # Run raffler
-ENTRYPOINT ["php", "/var/app/raffler.λ.php", "/var/names/current"]
+ENTRYPOINT ["php", "/var/app/raffler.λ.php", "/var/names.txt"]

@@ -10,4 +10,4 @@ WORKDIR /var/app
 RUN javac -g org/domcode/talk/raffler/annaffler/application/Annaffler.java
 
 # Run raffler
-CMD ["java", "org/domcode/talk/raffler/annaffler/application/Annaffler", "/var/names/current"]
+CMD ["java", "org/domcode/talk/raffler/annaffler/application/Annaffler", "/var/names.txt"]

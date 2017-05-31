@@ -15,4 +15,4 @@ COPY ws-interpreter.php /var/app/ws-interpreter.php
 RUN php -f domraffler.php
 
 # Run raffler
-CMD ["sh", "-c", "cat /var/names/current | php -f /var/app/ws-interpreter.php /var/app/domraffler.ws"]
+CMD ["sh", "-c", "cat /var/names.txt | php -f /var/app/ws-interpreter.php /var/app/domraffler.ws"]

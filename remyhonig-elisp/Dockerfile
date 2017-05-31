@@ -9,4 +9,4 @@ COPY . /var/app
 WORKDIR /var/app
 
 # Run raffler
-CMD ["emacs", "--script", "run.el", "/var/names/current"]
+CMD ["emacs", "--script", "run.el", "/var/names.txt"]

@@ -1,2 +1,2 @@
 #!/bin/sh
-cargo run --release /var/names/current
+cargo run --release /var/names.txt

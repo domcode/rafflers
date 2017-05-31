@@ -8,4 +8,4 @@ RUN mkdir -p /var/app
 COPY ./raffler.lua /var/app
 WORKDIR /var/app
 
-CMD ["lua", "raffler.lua", "/var/names/current"]
+CMD ["lua", "raffler.lua", "/var/names.txt"]

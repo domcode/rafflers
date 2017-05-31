@@ -9,4 +9,4 @@ COPY raffler /var/app
 WORKDIR /var/app
 
 # Run raffler
-CMD ["zsh", "./raffler", "/var/names/current"]
+CMD ["zsh", "./raffler", "/var/names.txt"]

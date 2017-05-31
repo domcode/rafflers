@@ -9,4 +9,4 @@ COPY main.go /var/app
 
 RUN go get github.com/arbovm/levenshtein
 
-ENTRYPOINT ["go", "run", "./main.go", "/var/names/current"]
+ENTRYPOINT ["go", "run", "./main.go", "/var/names.txt"]

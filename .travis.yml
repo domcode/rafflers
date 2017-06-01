@@ -21,7 +21,6 @@ env:
   - RAFFLER=breun-python
   - RAFFLER=daniellemccool-r
   - RAFFLER=dennisdegreef-actionscript3
-  - RAFFLER=Dockerfile
   - RAFFLER=drvanr-FORTRAN
   - RAFFLER=drvanr-lua
   - RAFFLER=duijf-julia
@@ -38,7 +37,6 @@ env:
   - RAFFLER=jeroenvdgulik-java
   - RAFFLER=kaeufl-brainfuck
   - RAFFLER=kilte-python3
-  - RAFFLER=lucasvanlierop-agc-assembly
   - RAFFLER=lucasvanlierop-cobol
   - RAFFLER=markredeman-cpp
   - RAFFLER=mathiasverraes-erlang

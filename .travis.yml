@@ -77,7 +77,7 @@ env:
 
 # The following rafflers are either broken or not yet containerized.
 matrix:
-  allow_failure:
+  allow_failures:
     - env: RAFFLER=aochagavia-rust
     - env: RAFFLER=bauro-ansible
     - env: RAFFLER=bauro-haproxy

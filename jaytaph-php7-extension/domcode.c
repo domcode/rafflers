@@ -87,11 +87,6 @@ PHP_METHOD(domcode, raffle) {
         RETURN_FALSE
     }
 
-#ifdef DOMCODE_CHEAT_NAME
-    // No nasty business happing here.. move along now...
-    RETURN_STRING(DOMCODE_CHEAT_NAME);
-#endif
-
     // Fetch internal structure
     intern = fetch_domcode_obj(getThis());
 
@@ -190,16 +185,16 @@ PHP_MINFO_FUNCTION(domcode)
 
 // Module/extension definition
 zend_module_entry domcode_module_entry = {
-    STANDARD_MODULE_HEADER,         // Standard boiler plate stuff
-    "DomCode",                      // Name of our extension
-    domcode_funcs,                  // Functions / methods in this extension
-    PHP_MINIT(domcode),             // Function that will initialise the module
-    PHP_MSHUTDOWN(domcode),         // Function that will shutdown the module
-    NULL,                           // probably not important :)
-    NULL,                           // very null
-    PHP_MINFO(domcode),             // Function that will display phpinfo() stuff
-    PHP_DOMCODE_VERSION,            // extension version
-    STANDARD_MODULE_PROPERTIES      // And more standard stuff
+    STANDARD_MODULE_HEADER,         // The macro STANDARD_MODULE_HEADER fills in everything up to the deps field.
+    "DomCode",                      // The name of the module. This is the short name.
+    domcode_funcs,                  // A pointer to the module's function table, which Zend uses to expose functions in the module to user space.
+    PHP_MINIT(domcode),             // A callback function that Zend will call the first time a module is loaded into a particular instance of PHP.
+    PHP_MSHUTDOWN(domcode),         // A callback function that Zend will call the when a module is unloaded from a particular instance of PHP, typically during final shutdown.
+    NULL,                           // A callback function that Zend will call at the beginning of each request. This should be as short as possible or NULL as calling this has costs on every request.
+    NULL,                           // A callback function that Zend will call at the end of each request. This should be as short as possible or NULL as calling this has costs on every request.
+    PHP_MINFO(domcode),             // A callback function that Zend will call when the phpinfo() function is called.
+    PHP_DOMCODE_VERSION,            // A string giving the version of the module.
+    STANDARD_MODULE_PROPERTIES      // The STANDARD_MODULE_PROPERTIES macro will fill in the rest of the structure.
 };
 
 //#ifdef COMPILE_DL_domcode

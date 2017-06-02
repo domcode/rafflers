@@ -13,7 +13,7 @@
 
     #include "php.h"
 
-    #define PHP_DOMCODE_VERSION "0.0.1"
+    #define PHP_DOMCODE_VERSION "0.0.2"
     #define PHP_DOMCODE_URL "http://domcode.org/"
     #define PHP_DOMCODE_AUTHOR "Joshua Thijssen"
 

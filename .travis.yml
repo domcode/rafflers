@@ -86,7 +86,6 @@ matrix:
     - env: RAFFLER=example_names
     - env: RAFFLER=frankdejonge-rust
     - env: RAFFLER=jaytaph-bootsector-asm
-    - env: RAFFLER=jaytaph-php7-extension
     - env: RAFFLER=jaytaph-saffire
     - env: RAFFLER=nickspelt-html
     - env: RAFFLER=remyhonig-elisp

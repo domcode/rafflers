@@ -1,10 +1,5 @@
-FROM debian:jessie
-MAINTAINER robin@kingsquare.nl
+FROM bash
 
-# Create working dir
-RUN mkdir -p /var/app
-COPY . /var/app
-WORKDIR /var/app
+COPY raffler /
 
-# Run raffler
-CMD ["/var/app/raffler", "/var/names.txt"]
+CMD ["bash", "/raffler", "/var/names.txt"]

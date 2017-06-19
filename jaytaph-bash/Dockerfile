@@ -1,10 +1,5 @@
-FROM alpine:3.4
-MAINTAINER robin@kingsquare.nl
+FROM bash
 
-RUN apk add --no-cache bash
+COPY raffle.sh /
 
-RUN mkdir -p /var/app
-WORKDIR /var/app
-COPY raffle.sh /var/app
-
-CMD ["bash", "/var/app/raffle.sh", "/var/names.txt"]
+CMD ["bash", "/raffle.sh", "/var/names.txt"]

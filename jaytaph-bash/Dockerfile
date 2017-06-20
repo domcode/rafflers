@@ -1,4 +1,8 @@
-FROM bash
+FROM alpine
+
+RUN apk add --no-cache bash coreutils
+
+WORKDIR /
 
 COPY raffle.sh /
 

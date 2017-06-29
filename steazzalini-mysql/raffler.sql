@@ -4,7 +4,7 @@ USE domcode_rafflers;
 
 CREATE TEMPORARY TABLE names(name VARCHAR(30) NOT NULL);
 
-LOAD DATA INFILE 'example_names' INTO TABLE names;
+LOAD DATA LOCAL INFILE '/var/names.txt' INTO TABLE names;
 
 SELECT name AS 'The winner is:' FROM names ORDER BY RAND() LIMIT 1;
 

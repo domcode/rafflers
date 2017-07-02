@@ -48,6 +48,7 @@ env:
   - RAFFLER=rdohms-lolcode
   - RAFFLER=rdohms-lua
   - RAFFLER=remyhonig-elisp
+  - RAFFLER=rikva-hy
   - RAFFLER=rjkip-bash
   - RAFFLER=rjkip-drvanr-pony
   - RAFFLER=rjkip-elixir

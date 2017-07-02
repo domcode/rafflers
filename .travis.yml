@@ -77,7 +77,6 @@ env:
 # The following rafflers are either broken or not yet containerized.
 matrix:
   allow_failures:
-    - env: RAFFLER=aochagavia-rust
     - env: RAFFLER=bauro-ansible
     - env: RAFFLER=bauro-haproxy
     - env: RAFFLER=bkors-java-spring-boot-enterprice
@@ -92,8 +91,6 @@ matrix:
     - env: RAFFLER=scato-elm
     - env: RAFFLER=scato-glitch
     - env: RAFFLER=scato-haxe
-    - env: RAFFLER=steazzalini-cmake
-    - env: RAFFLER=steazzalini-mysql
     - env: RAFFLER=winkbrace-dos-batch
 
 before_script:

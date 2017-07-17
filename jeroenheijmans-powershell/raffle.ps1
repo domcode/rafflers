@@ -1,0 +1,1 @@
+Get-Content /var/names.txt | Where-Object {$_ -ne ""} | Get-Random

@@ -15,6 +15,5 @@ COPY . /var/app
 WORKDIR /var/app
 
 # Run raffler
-ADD raffler.pas /var/app/
-CMD ["fpc", "/var/app/raffler.pas"]
-CMD ["./raffler", "/var/names.txt"]
+RUN fpc /var/app/raffler.pas
+CMD ["/var/app/raffler", "/var/names.txt"]

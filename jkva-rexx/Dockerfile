@@ -15,4 +15,4 @@ COPY . /var/app
 WORKDIR /var/app
 
 # Run raffler
-CMD ["bash", "/var/app/run.sh"]
+CMD ["/var/app/raffler.rexx", "/var/names.txt"]

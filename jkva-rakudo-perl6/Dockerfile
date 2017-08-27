@@ -8,4 +8,4 @@ RUN chmod +x /var/app/raffler.p6
 WORKDIR /var/app
 
 # Run raffler
-CMD ["bash", "/var/app/run.sh"]
+CMD ["perl6", "/var/app/raffler.p6", "/var/names.txt"]

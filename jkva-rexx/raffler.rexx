@@ -1,3 +1,5 @@
+#!/usr/bin/regina
+
 /************************************/
 /*    DomCode prize raffler.        */
 /*    www.domcode.org               */

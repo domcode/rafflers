@@ -17,27 +17,35 @@ You can write it in any language. The weirder the better. If you like insane ove
 - Please supply a Dockerfile so we do not have to install al these weird stuff on our systems directly :-P
 - Wacky GIFs aren't required in your PR but are encouraged (see YoloSR-2).
 
-## Dockerised rafflers
+## Dockerized rafflers
+
+ *Note that Dockerize rafflers receive `/var/names.txt` via the [`raffle.sh`](./raffle.sh) script*
 
 ### Dockerfile example:
 ```
-FROM baseimage # or a more suitable base container
+# Choose a base image you like
+FROM java:jdk-alpine
 
-# Install your dependencies
-RUN apt-get install -y deps-you-require
+# Copy you raffler code to the image
+RUN mkdir -p /var/app
+COPY src /var/app
+WORKDIR /var/app
 
-# Compile raffler (if necessary)
-RUN /var/app/compile.sh # everything needed to compile your raffler
+# Compile (if needed)
+RUN javac -g org/domcode/talk/raffler/annaffler/application/Annaffler.java
+
+# Run raffler
+CMD ["java", "org/domcode/talk/raffler/annaffler/application/Annaffler", "/var/names.txt"]
 ```
 
-### Perform a raffle using a random Dockerised raffler
+### Perform a raffle using a random Dockerized raffler
 
 ```shell-session
 $ # make rebuild
 $ make raffle NAMES=/tmp/your-names-file
 ```
 
-### Test that Dockerised rafflers work
+### Test that Dockerized rafflers work
 
 ```shell-session
 $ make test                         # Tests all rafflers

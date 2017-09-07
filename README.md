@@ -14,7 +14,7 @@ Each raffler should accept a filename as the first CLI argument. The file will c
 You can write it in any language. The weirder the better. If you like insane over engineering, do so! If you like to do it the way you've been telling your junior colleagues not to, go ahead!
 
 ## Getting Merged Quickly
-- Please supply a Dockerfile so we do not have to install al these weird stuff on our systems directly :-P
+- Please supply a Dockerfile so we do not have to install all these weird stuff on our systems directly :-P
 - Wacky GIFs aren't required in your PR but are encouraged (see YoloSR-2).
 
 ## Dockerized rafflers

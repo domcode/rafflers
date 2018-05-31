@@ -27,9 +27,9 @@ main(void)
 	}
 
 	if (ferror(stdin))
-		err(1, "raffle");
+		err(1, NULL);
 	if (!winner)
-		errx(1, "raffle: empty input");
+		errx(1, "empty input");
 
 	fputs(winner, stdout);
 	return 0;

@@ -1,0 +1,15 @@
+c-sjmulder
+
+Most rafflers here either
+ - read the entire file into memory, then operate on it, or
+ - do two passes over the file.
+
+This one does neither, instead it takes one pass using reservoir sampling
+at the cost of more rand() calls.
+
+To compile and use:
+
+    cc -o raffler raffler.c
+    ./raffler <names.txt
+
+By Sijmen J. Mulder <ik@sjmulder.nl>

@@ -3,21 +3,19 @@
 # This was tested in production, it works, get over it
 
 # Check for an argument, we need an argument, Ross said so
-if ARGV.empty?
-    puts "You need to point to the participants list"
-    exit
-end
+abort('You need to point to the participants list') if ARGV.empty?
 
-filePath = ARGV[0]
+@file_path = ARGV[0]
+
+def file_valid?
+  File.exist?(@file_path) || File.readable?(@file_path)
+end
 
 # Ross also said this argument should be a file and readable
-if false == File.exist?(filePath) || false == File.readable?(filePath)
-    puts "The argument you passed is not a file or is not readable"
-    exit
-end
+abort('The argument you passed is not a readable file') unless file_valid?
 
 # Ross also said we need it random, so don't return my name
-winner = File.readlines(filePath).sample
+winner = File.readlines(@file_path).sample
 
-# Return the random dude, make him happy
-puts "And the winner is " + winner
+# Return the random person, making them happy
+puts "And the winner is #{winner}"

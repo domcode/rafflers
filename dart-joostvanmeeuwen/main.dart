@@ -12,7 +12,7 @@ main (List<String> args) async {
   names.removeWhere((value) => value.toString().isEmpty);
 
   if (names.isEmpty) {
-    throw Exception('File apears to be empty');
+    throw Exception('File appears to be empty');
   }
 
   final random = new Random();

@@ -8,11 +8,15 @@ main (List<String> args) async {
 
   var file = File(args[0]);
   var names;
-  final random = new Random();
-
   names = await file.readAsLines();
   names.removeWhere((value) => value.toString().isEmpty);
 
+  if (names.isEmpty) {
+    throw Exception('File apears to be empty');
+  }
+
+  final random = new Random();
   var winner = names[random.nextInt(names.length)];
+
   print(winner);
 }

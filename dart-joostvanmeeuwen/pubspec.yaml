@@ -1,0 +1,6 @@
+name: domcode_dockerized_dart_raffler
+version: 1.0.0
+description: Dockerized raffler written in the Dart Language
+author: Joost van Meeuwen <hallo@joostvanmeeuwen.nl>
+environment:
+  sdk: '>=2.0.0 <3.0.0'

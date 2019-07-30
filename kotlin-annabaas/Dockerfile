@@ -1,19 +1,15 @@
-FROM ubuntu:16.04
+FROM openjdk:8
 MAINTAINER Anna Baas <annabaas@gmail.com>
 
-ENV KOTLIN_VERSION=1.1-beta 
+ENV KOTLIN_VERSION=1.1-beta
 ENV KOTLIN_HOME=/usr/local/kotlin
 
 # Install java jdk
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get -y update && apt-get upgrade -y
 RUN apt-get install -y software-properties-common
-RUN apt-get -y update && add-apt-repository -y ppa:webupd8team/java
-RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
-RUN apt-get -y update && apt-get install -y oracle-java8-installer
-RUN apt-get install -y curl 
-RUN apt-get install -y unzip 
+RUN apt-get install -y curl
+RUN apt-get install -y unzip
 
 # Install kotlin
 #RUN         apk update && \

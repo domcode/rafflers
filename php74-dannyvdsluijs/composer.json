@@ -1,0 +1,32 @@
+{
+    "name": "dannyvdsluijs/php74-raffler",
+    "description": "A DOMCode raffler written with PHP 7.4",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Php74Raffler\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.4"
+    },
+    "scripts": {
+        "phpstan": [
+            "@composer install --optimize-autoloader",
+            "./vendor/bin/phpstan analyze src/ raffler  --level max"
+        ]
+    },
+    "scripts-descriptions": {
+        "phpstan": "Run PHPStan against the code"
+    }
+}

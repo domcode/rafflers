@@ -1,0 +1,24 @@
+#!/usr/local/bin/php
+<?php
+
+declare(strict_types=1);
+
+use Php74Raffler\Raffler;
+
+require_once 'vendor/autoload.php';
+
+if ($argc !== 2) {
+    echo 'Usage: ./raffle <filename>' . PHP_EOL;
+    exit(1);
+}
+
+try {
+    $raffler = new Raffler();
+    $raffler->load($argv[1]);
+
+    $winner = $raffler->pickWinner();
+    echo $winner . PHP_EOL;
+} catch (\Exception $e) {
+    echo "ERROR: {$e->getMessage()}" . PHP_EOL;
+    exit(254);
+}

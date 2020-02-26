@@ -1,11 +1,112 @@
 services: [docker]
 
+env:
+  - RAFFLER=java-annabaas
+  - RAFFLER=kotlin-annabaas
+  - RAFFLER=rust-aochagavia
+  - RAFFLER=pascal-arnovr
+  - RAFFLER=squirrel-arnovr
+  - RAFFLER=dlang-arothuis
+  - RAFFLER=elixir-basbl
+  - RAFFLER=zsh-basbl
+  - RAFFLER=ansible-bauro
+  - RAFFLER=haproxy-bauro
+  - RAFFLER=java-spring-boot-enterprice-bkors
+  - RAFFLER=cljs-node-lumo-borkdude
+  - RAFFLER=clojure-borkdude
+  - RAFFLER=ansible-breun
+  - RAFFLER=groovy-breun
+  - RAFFLER=java-breun
+  - RAFFLER=kotlin-breun
+  - RAFFLER=python-breun
+  - RAFFLER=r-daniellemccool
+  - RAFFLER=actionscript3-dennisdegreef
+  - RAFFLER=FORTRAN-drvanr
+  - RAFFLER=lua-drvanr
+  - RAFFLER=julia-duijf
+  - RAFFLER=c-erikaheidi
+  - RAFFLER=rust-frankdejonge
+  - RAFFLER=awk-jaytaph
+  - RAFFLER=bash-jaytaph
+  - RAFFLER=bootsector-asm-jaytaph
+  - RAFFLER=php7-extension-jaytaph
+  - RAFFLER=php-legacy-jaytaph
+  - RAFFLER=saffire-jaytaph
+  - RAFFLER=netcore2-jeroenheijmans
+  - RAFFLER=java-jeroenvdgulik
+  - RAFFLER=brainfuck-kaeufl
+  - RAFFLER=python3-kilte
+  - RAFFLER=cobol-lucasvanlierop
+  - RAFFLER=cpp-markredeman
+  - RAFFLER=erlang-mathiasverraes
+  - RAFFLER=lambdalicious-mathiasverraes
+  - RAFFLER=whitespace-mattp
+  - RAFFLER=scala-akka-michielrook
+  - RAFFLER=html-nickspelt
+  - RAFFLER=node-nickspelt
+  - RAFFLER=php-array-insanity-ramondelafuente
+  - RAFFLER=lolcode-rdohms
+  - RAFFLER=lua-rdohms
+  - RAFFLER=elisp-remyhonig
+  - RAFFLER=bash-rjkip
+  - RAFFLER=drvanr-pony-rjkip
+  - RAFFLER=elixir-rjkip
+  - RAFFLER=nim-rjkip
+  - RAFFLER=rust-rjkip
+  - RAFFLER=php-rosstuck
+  - RAFFLER=go-rpkamp
+  - RAFFLER=elm-scato
+  - RAFFLER=glitch-scato
+  - RAFFLER=haxe-scato
+  - RAFFLER=haskell-sgoettschkes
+  - RAFFLER=scala-shawnmccool
+  - RAFFLER=perl-snoek09
+  - RAFFLER=cmake-steazzalini
+  - RAFFLER=mysql-steazzalini
+  - RAFFLER=nodejs-steazzalini
+  - RAFFLER=ocaml-steazzalini
+  - RAFFLER=python-stelian
+  - RAFFLER=python-objective-stelian
+  - RAFFLER=ruby-stelian
+  - RAFFLER=scheme-turanct
+  - RAFFLER=dos-batch-winkbrace
+  - RAFFLER=c-wjzijderveld
+  - RAFFLER=go-wjzijderveld
+  - RAFFLER=php7-wyrihaximus
+
+# The following rafflers are either broken or not yet containerized.
+matrix:
+  allow_failures:
+    - env: RAFFLER=rust-aochagavia
+    - env: RAFFLER=ansible-bauro
+    - env: RAFFLER=haproxy-bauro
+    - env: RAFFLER=java-spring-boot-enterprice-bkors
+    - env: RAFFLER=FORTRAN-drvanr
+    - env: RAFFLER=rust-frankdejonge
+    - env: RAFFLER=bootsector-asm-jaytaph
+    - env: RAFFLER=saffire-jaytaph
+    - env: RAFFLER=html-nickspelt
+    - env: RAFFLER=elisp-remyhonig
+    - env: RAFFLER=drvanr-pony-rjkip
+    - env: RAFFLER=rust-rjkip
+    - env: RAFFLER=elm-scato
+    - env: RAFFLER=glitch-scato
+    - env: RAFFLER=haxe-scato
+    - env: RAFFLER=cmake-steazzalini
+    - env: RAFFLER=mysql-steazzalini
+    - env: RAFFLER=dos-batch-winkbrace
+
 before_script:
   # Ancient make binary at TravisCI doesn't support indentation with spaces
   - unexpand -t 4 Makefile > Makefile.tmp && mv Makefile.tmp Makefile
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then make test-changed; else make test; fi
+  - make test
+  #- if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then make test-changed; else make test; fi
 
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD && docker push domcode/raffler; fi
+
+branches:
+  only:
+  - master

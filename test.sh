@@ -21,9 +21,6 @@ for file in $dockerfiles; do
 
     # Some rafflers don't support trailing newline and may pick the empty line as the winner.
     non_spec_rafflers="kaeufl-brainfuck markredeman-cpp rdohms-lolcode remyhonig-elisp"
-    if [[ " $non_spec_rafflers " == *" $dir "* ]]; then
-        continue
-    fi
 
     # Run the raffler 5 times so we're kind of sure it doesn't pick the empty line as the winner.
     for attempt in 1 2 3 4 5; do

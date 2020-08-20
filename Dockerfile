@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ubuntu:18.04
 
 MAINTAINER lucas@vanlierop.org
 
